@@ -136,8 +136,8 @@ def main():
     """
     
     # CONFIGURAÇÃO - Altere estes caminhos conforme necessário
-    videos_folder = r"C:\Users\Luis Carlos\Desktop\FCBerlotti\ytUpload\videos\video_parts"              # Pasta com pkxd.mp4, bloxf.mp4, etc. (5s cada)
-    music_folder = r"C:\Users\Luis Carlos\Desktop\FCBerlotti\ytUpload\videos\musics"                    # Pasta com music1.mp3, music2.mp3, etc.
+    videos_folder = r"C:\Users\felip\Desktop\Projetos\ytUpload\videosGeral\video_parts"              # Pasta com pkxd.mp4, bloxf.mp4, etc. (5s cada)
+    music_folder = r"C:\Users\felip\Desktop\Projetos\ytUpload\videosGeral\musics"                    # Pasta com music1.mp3, music2.mp3, etc.
     output_folder = "final_videos_with_music"  # Pasta onde salvar os resultados
     
     print("🎵 DUPLICADOR DE VÍDEOS COM MÚSICA")

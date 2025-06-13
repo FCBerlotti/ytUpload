@@ -25,6 +25,7 @@ version = "1.4"
 # Loop para reenvio de videos com erro  
 # Alteração na seleção de thumbnail e video, agora é por nome do conteudo
 # Videos e thumbs agora ficam em uma pasta unica e não mais separadas por counteudo
+# Comentarios sobre os jogos removidos e adicionados em "conteudos.py"
 
 # Reformulação na abertura e fechamento do navegador "def closeNav()" -- adicionar
 # Organização - Funções agora são separadas por classes -- adicionar
@@ -383,42 +384,6 @@ class logs:
 
         logs.colorir_celulas(excelArchive)
 
-def comments():
-    # Categorias de video para upar
-    """
-    //Futebol// 3
-    dls = Dream League Soccer
-    fcmob = FC Mobile
-    wsc = World Soccer Champs
-
-    //Caminhoes + Carros// 8
-    wtds = World Truck Driver Simulator
-    trd = The Road Driver
-    gto = Global Truck Online
-    farmings = Farming Simulator
-    cxdr = Carx Drift Racing 2
-    motow = Moto Wheelie 3D
-    drivers = Drivers Jobs
-    carp = Car Parking
-
-    //Infantil// 6
-    pkxd = Pk Xd
-    bloxf = Blox Fruits
-    roblox = Roblox
-    toca = Toca Life
-    sims = The Sims Freeplay
-    subway = Subway Surfers
-
-    //Outros// 5
-    gangstar = Gangstar Vegas
-    madout = Madout 2 Big City
-    sf2 = Shadow Fight 2
-    pvz = Plants vs Zombies 2
-    bit = Bit Life BR
-    """
-
-    #NO FUTURO, UTILIZAR API DO YT
-
 def openNavConfig():
     maximo = clickImage(False, "images/windows/maximo.png", 0.8, 1)
     if maximo is False:
@@ -434,22 +399,37 @@ def dadosIniciais():
     global start, end, jumpDay, firstDate, errorList, postar, foundSelectorVideo, foundSelectorThumb, attemptsWhile
     foundSelectorVideo = r"C:/Users/felip/Desktop/Projetos/ytUpload/videos"
     foundSelectorThumb = r"C:/Users/felip/Desktop/Projetos/ytUpload/thumbs"
-    start = 2
+    start = 3
     end = 4
     jumpDay = 10
-    firstDate = 3
+    firstDate = 0
     attemptsWhile = 0
     
-postar = ["retro"]
+postar = ["gtasa", "pd2", "pes", "frl", "footl", "mine", "retro", "wbus", "sims", "pkxd", "chapters", "subway", "wtds", "cxdr", "dls", "motow", "roblox", "toca", "episode", "among", "trd", "rr3", "fcmob", "eab", "moonvale"]
 errorList = []
 
 for videoType in postar:
     dadosIniciais()
     info = conteudos[videoType]
-    #foundSelector = info["pasta"]
     tittlePath = info["titulo_arquivo"]
     descPath = info["desc_arquivo"]
     hour = info["horario"]
+
+    if videoType == "gtasa" or videoType == "pd2" or videoType == "pes":
+        firstDate = 3
+    elif videoType == "frl" or videoType == "footl":
+        firstDate = 4
+    elif videoType == "mine" or videoType == "retro":
+        firstDate = 5
+    elif videoType == "wbus":
+        firstDate = 6
+    elif videoType == "sims" or videoType == "pkxd" or videoType == "chapters" or videoType == "subway" or videoType == "wtds" or videoType == "cxdr" or videoType == "dls" or videoType == "motow":
+        firstDate == 8
+        start = 4
+    elif videoType == "roblox" or videoType == "tocar" or videoType == "episode" or videoType == "among" or videoType == "trd" or videoType == "rr3" or videoType == "fcmob" or videoType == "eab" or videoType == "moonvale":
+        firstDate = 9
+        start = 4 
+        
     ntfy(f"INICIANDO ENVIO DE {videoType} {int(postar.index(videoType))+1}/{len(postar)}")
 
     for videoNumber in range(start, end+1):
@@ -457,7 +437,7 @@ for videoType in postar:
         aboutVideoInfos()
         dateCalculate()
         errorInfo = False
-        openNav("https://studio.youtube.com/channel/UCYUNcbRJKyGbmNjw2rSdh4A/videos/")
+        openNav("https://studio.youtube.com/channel/UCPDa_GVRpoAwRVCSnAZ8V_A/videos/")
         time.sleep(5)
         openNavConfig()
         steps.step1Upload()

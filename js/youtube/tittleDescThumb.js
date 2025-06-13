@@ -34,3 +34,5 @@
         console.log("Botão não encontrado.");
     }
 })();
+
+document.querySelector("#audience > ytkc-made-for-kids-select > div.made-for-kids-rating-container.style-scope.ytkc-made-for-kids-select > tp-yt-paper-radio-group > tp-yt-paper-radio-button:nth-child(2)").click();
