@@ -19,6 +19,7 @@ errorInfo = False
 version = "1.4"
 
 "Novas Funcionalidades da Versão 1.4"
+# Notas de atualizações só são feitas referente a este código, sem citar atualizações feitas nos arquivos, como novos videos, novas thumbs, novos titulos e descrições
 # Novo sistema de notificação no ntfy
 # Correção de bug ao utilizar mais de um tipo de conteudo, a data de envio adicionava ao ultimo video da categoria anterior e nao voltava do inicio
 # Correção de bug ao utilizar mais de um tipo de conteudo, dava erro quando o segundo iniciava se o ultimo do outro conteudo fosse erro
@@ -26,7 +27,9 @@ version = "1.4"
 # Alteração na seleção de thumbnail e video, agora é por nome do conteudo
 # Videos e thumbs agora ficam em uma pasta unica e não mais separadas por counteudo
 # Comentarios sobre os jogos removidos e adicionados em "conteudos.py"
+# Atualização no sistema de notificação NTFY, escritas erradas e falta de conteudo em algumas chamadas
 
+# Correção na função do excel --escrever nome da funcao aqui-- ela anotava apenas o numero do video e se deu erro ou nao, agora ela anota a categoria e quais videos foram enviados ou não -- adicionar
 # Reformulação na abertura e fechamento do navegador "def closeNav()" -- adicionar
 # Organização - Funções agora são separadas por classes -- adicionar
 # Correção de erro ao fechar navegador, quando envio dava erro, não fechava a pagina do envio -- adicionar
@@ -138,7 +141,7 @@ def errorFunction(etapa):
     logs.salvar_dados_excel('Error')
     errorList.append((videoType, videoNumber, dateSelect))
     timeCalc()
-    ntfy(f"❌❌❌❌❌\nPrevisão de termino: {horario_estimado}\nContas Verficadas {videoNumber}/{end}\nCategoria: {videoType}\nEtapa do Erro: {etapa}")
+    ntfy(f"❌❌❌❌❌\nPrevisão de termino: {horario_estimado}\nNumero do Video: {videoNumber}/{end}\nCategoria: {videoType}\nEtapa do Erro: {etapa}\nVersão:{version}")
 
 def closeNav():
     pg.hotkey('ctrl', 'w')
@@ -399,14 +402,14 @@ def dadosIniciais():
     global start, end, jumpDay, firstDate, errorList, postar, foundSelectorVideo, foundSelectorThumb, attemptsWhile
     foundSelectorVideo = r"C:/Users/felip/Desktop/Projetos/ytUpload/videos"
     foundSelectorThumb = r"C:/Users/felip/Desktop/Projetos/ytUpload/thumbs"
-    start = 3
+    start = 4
     end = 4
     jumpDay = 10
-    firstDate = 0
+    firstDate = 5
     attemptsWhile = 0
     
-postar = ["gtasa", "pd2", "pes", "frl", "footl", "mine", "retro", "wbus", "sims", "pkxd", "chapters", "subway", "wtds", "cxdr", "dls", "motow", "roblox", "toca", "episode", "among", "trd", "rr3", "fcmob", "eab", "moonvale"]
 errorList = []
+postar = ["tabou", "carp", "traffic", "avl", "dss", "dsse"]
 
 for videoType in postar:
     dadosIniciais()
@@ -415,22 +418,14 @@ for videoType in postar:
     descPath = info["desc_arquivo"]
     hour = info["horario"]
 
-    if videoType == "gtasa" or videoType == "pd2" or videoType == "pes":
+    if videoType == "avl":
+        firstDate = 7
+    elif videoType == "dss":
         firstDate = 3
-    elif videoType == "frl" or videoType == "footl":
+    elif videoType == "dsse":
         firstDate = 4
-    elif videoType == "mine" or videoType == "retro":
-        firstDate = 5
-    elif videoType == "wbus":
-        firstDate = 6
-    elif videoType == "sims" or videoType == "pkxd" or videoType == "chapters" or videoType == "subway" or videoType == "wtds" or videoType == "cxdr" or videoType == "dls" or videoType == "motow":
-        firstDate == 8
-        start = 4
-    elif videoType == "roblox" or videoType == "tocar" or videoType == "episode" or videoType == "among" or videoType == "trd" or videoType == "rr3" or videoType == "fcmob" or videoType == "eab" or videoType == "moonvale":
-        firstDate = 9
-        start = 4 
         
-    ntfy(f"INICIANDO ENVIO DE {videoType} {int(postar.index(videoType))+1}/{len(postar)}")
+    ntfy(f"INICIANDO ENVIO DE {videoType} {int(postar.index(videoType))+1}/{len(postar)}\nVersão:{version}")
 
     for videoNumber in range(start, end+1):
         time_start = time.time()
@@ -451,7 +446,7 @@ for videoType in postar:
         closeNav()
         firstDate += jumpDay
         timeCalc()
-        ntfy(f"✅✅✅✅✅\nPrevisão de termino: {horario_estimado}\nContas Verficadas {videoNumber}/{end}\nCategoria: {videoType}\nVersão:{version}")
+        ntfy(f"✅✅✅✅✅\nPrevisão de termino: {horario_estimado}\nVideos: {videoNumber}/{end}\nCategoria: {videoType}\nVersão:{version}")
 
 while len(errorList) > 0 or attemptsWhile < 3:
     attemptsWhile += 1
@@ -464,9 +459,9 @@ while len(errorList) > 0 or attemptsWhile < 3:
         dateSelect = dateSelect
 
         time_start = time.time()
-        ntfy(f"INICIANDO SESSAO DE ERROS\nCategoria: {videoType}\nNumero do Video: {videoNumber}\nData da Postagem: {dateSelect}")
+        ntfy(f"INICIANDO SESSAO DE ERROS\nCategoria: {videoType}\nNumero do Video: {videoNumber}\nData da Postagem: {dateSelect}\nVersão:{version}")
         aboutVideoInfos()
-        openNav("https://studio.youtube.com/channel/UCYUNcbRJKyGbmNjw2rSdh4A/videos/")
+        openNav("https://studio.youtube.com/channel/UCPDa_GVRpoAwRVCSnAZ8V_A/videos/")
         time.sleep(5)
         openNavConfig()
         steps.step1Upload()
@@ -479,7 +474,7 @@ while len(errorList) > 0 or attemptsWhile < 3:
         closeNav()
         errorList.remove((videoType, videoNumber, dateSelect))
         timeCalc()
-        ntfy(f"✅✅✅✅✅\nPrevisão de termino: {horario_estimado}\nContas Verficadas {videoNumber}/{end}\nCategoria: {videoType}\nVersão:{version}")
+        ntfy(f"✅✅✅✅✅\nPrevisão de termino: {horario_estimado}\nNumero do Video: {videoNumber}/{end}\nCategoria: {videoType}\nVersão:{version}")
 
 ntfy("TODOS OS ENVIOS FORAM FINALIZADOS")
 

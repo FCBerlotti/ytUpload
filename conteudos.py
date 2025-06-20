@@ -5,9 +5,9 @@ INFANTIL MOBILE (1-10)
 2 - roblox = ROBLOX
 3 - bloxf = BLOX FRUITS
 4 - poclove = POCKET LOVE
-5 - pou = POU
-6 - mta2 = MY TALKING ANGELA 2
-7 - mtt = MY TALKING TON
+5 - [VAZIO]
+6 - [VAZIO]
+7 - [VAZIO]
 8 - mycafe = MY CAFE
 9 - [VAZIO]
 10 - [VAZIO]
@@ -63,7 +63,7 @@ CAMINHÕES (41-50)
 CARROS (51-60)
 51 - cxdr = CARX DRIFTING RACING 2
 52 - rr3 = REAL RACING 3
-53 - carp = CAR PARKING
+53 - carp = CAR PARKING MULTIPLAYER 2
 54 - drivers = DRIVERS JOBS
 55 - fury = RALLY FURY
 56 - pd2 = PROJECT DRIFT 2.0
@@ -116,7 +116,7 @@ CARROS + CORRIDA -3 (91-100)
 95 - 
 96 - 
 97 - 
-98 - monoposto = MONOPOSTO
+98 - monop = MONOPOSTO
 99 - offroad = OFFROAD OUTLAWS
 100 - driving = DRIVING ZONE
 
@@ -617,10 +617,10 @@ conteudos = {
         "desc_arquivo": "desc/poppy3.txt",
         "horario": "01:00"
     },
-    "pooclove": {
-        "pasta": r"C:\Users\Luis Carlos\Desktop\FCBerlotti\ytUpload\videos\pooclove",
-        "titulo_arquivo": "tittle/pooclove.txt",
-        "desc_arquivo": "desc/pooclove.txt",
+    "poclove": {
+        "pasta": r"C:\Users\Luis Carlos\Desktop\FCBerlotti\ytUpload\videos\poclove",
+        "titulo_arquivo": "tittle/poclove.txt",
+        "desc_arquivo": "desc/poclove.txt",
         "horario": "09:00"
     },
     "avw": {
@@ -701,12 +701,6 @@ conteudos = {
         "desc_arquivo": "desc/poppy4.txt",
         "horario": "01:00"
     },
-    "pou": {
-        "pasta": r"C:\Users\Luis Carlos\Desktop\FCBerlotti\ytUpload\videos\pou",
-        "titulo_arquivo": "tittle/pou.txt",
-        "desc_arquivo": "desc/pou.txt",
-        "horario": "09:00"
-    },
     "avl": {
         "pasta": r"C:\Users\Luis Carlos\Desktop\FCBerlotti\ytUpload\videos\avl",
         "titulo_arquivo": "tittle/avl.txt",
@@ -779,12 +773,6 @@ conteudos = {
         "desc_arquivo": "desc/poppy5.txt",
         "horario": "01:00"
     },
-    "mta2": {
-        "pasta": r"C:\Users\Luis Carlos\Desktop\FCBerlotti\ytUpload\videos\mta2",
-        "titulo_arquivo": "tittle/mta2.txt",
-        "desc_arquivo": "desc/mta2.txt",
-        "horario": "09:00"
-    },
     "miga": {
         "pasta": r"C:\Users\Luis Carlos\Desktop\FCBerlotti\ytUpload\videos\miga",
         "titulo_arquivo": "tittle/miga.txt",
@@ -856,12 +844,6 @@ conteudos = {
         "titulo_arquivo": "tittle/poppy6.txt",
         "desc_arquivo": "desc/poppy6.txt",
         "horario": "01:00"
-    },
-    "mtt": {
-        "pasta": r"C:\Users\Luis Carlos\Desktop\FCBerlotti\ytUpload\videos\mtt",
-        "titulo_arquivo": "tittle/mtt.txt",
-        "desc_arquivo": "desc/mtt.txt",
-        "horario": "09:00"
     },
     "adorable": {
         "pasta": r"C:\Users\Luis Carlos\Desktop\FCBerlotti\ytUpload\videos\adorable",
@@ -971,12 +953,6 @@ conteudos = {
         "desc_arquivo": "desc/madout.txt",
         "horario": "17:00"
     },
-    "monopost": {
-        "pasta": r"C:\Users\Luis Carlos\Desktop\FCBerlotti\ytUpload\videos\monopost",
-        "titulo_arquivo": "tittle/monopost.txt",
-        "desc_arquivo": "desc/monopost.txt",
-        "horario": "18:00"
-    },
     "worldbox": {
         "pasta": r"C:\Users\Luis Carlos\Desktop\FCBerlotti\ytUpload\videos\worldbox",
         "titulo_arquivo": "tittle/worldbox.txt",
@@ -1023,6 +999,12 @@ conteudos = {
         "pasta": r"C:\Users\Luis Carlos\Desktop\FCBerlotti\ytUpload\videos\offroad",
         "titulo_arquivo": "tittle/offroad.txt",
         "desc_arquivo": "desc/offroad.txt",
+        "horario": "18:00"
+    },
+    "monop": {
+        "pasta": r"C:\Users\Luis Carlos\Desktop\FCBerlotti\ytUpload\videos\monop",
+        "titulo_arquivo": "tittle/monop.txt",
+        "desc_arquivo": "desc/monop.txt",
         "horario": "18:00"
     },
     "tr2": {
