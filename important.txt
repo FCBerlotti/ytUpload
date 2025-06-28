@@ -1,0 +1,3 @@
+npm install # Instalar em todos os projetos, não é igual python
+npm run dev # Abrir servidor, sempre estar aberto
+npm run dev -- --host # 

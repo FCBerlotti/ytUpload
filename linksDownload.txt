@@ -1,0 +1,350 @@
+# LISTA SEQUENCIAL
+"""
+INFANTIL MOBILE (1-10)
+1 - sims = THE SIMS FREE PLAY
+https://www.mediafire.com/file/b23wrvves2s8jti/The_Sims_Freeplay_v._5.92.2_Mod_Dinheiro_Infinito_e_Vip_Atualizado_2025.apk/file
+2 - roblox = ROBLOX
+3 - bloxf = BLOX FRUITS
+https://www.mediafire.com/file/9qrrdambyau8967/Delta-v2.671.apk/file
+4 - poclove = POCKET LOVE
+https://www.mediafire.com/file/v4o5kys08kc6emm/Pocket_Love_v2.15.5_MOD.apk/file
+5 - [VAZIO]
+6 - [VAZIO]
+7 - [VAZIO]
+8 - mycafe = MY CAFE
+https://www.mediafire.com/file/1ky9zqo3trgnfrs/my-cafe__v2025.5.1.1__Mod.apk/file?dkey=7svbvbfbmoa&r=1710
+9 - [VAZIO]
+10 - [VAZIO]
+
+INFANTIL (WORLDS) (11-20)
+11 - pkxd = PK XD
+https://www.mediafire.com/file/3ezkui5lssoq4tq/PK+XD+v1.69.0+Odranoel.apk/file
+12 - toca = TOCA LIFE
+https://www.mediafire.com/file_premium/0fivlg2579y05fm/Toca-Boca-World-v1.109-RL-Android.apk/file
+13 - aha = AHA WORLD
+https://www.mediafire.com/file/pvank2l8q2rg34k/AHA+WORLD+v4.14.0+Odranoel.apk/file
+14 - avw = AVATAR WORLD
+https://www.mediafire.com/file/f7ol9szhj0oibla/Avatar+World+v1.144+Odranoel.apk/file
+15 - avl = AVATAR LIFE
+16 - miga = MIGA WORLD
+17 - adorable = ADORABLE HOME
+https://www.mediafire.com/file/3iflooiu07vjqhg/adorable-home-mod_2.16.4.apk/file
+18 - [VAZIO]
+19 - [VAZIO]
+20 - [VAZIO]
+
+INFANTIL (HISTÓRIAS) (21-30)
+21 - chapters = CHAPTERS INTERACTIVE STORIES / CHAPTERS ROMANCE
+https://www.mediafire.com/file/q8f4c18ze8kbw9l/Chapters+Romance+v6.6.7+Odranoel.apk/file
+22 - episode = EPISODE
+https://www.mediafire.com/file/cyie5czz5yiju5p
+23 - tabou = TABOU STORY
+https://www.mediafire.com/file/uw3dcmmf6c58bh9?dkey=ztwpai45q8y&r=1771
+24 - decisoes = DECISOES CHOOSE
+https://www.mediafire.com/file/5a3432zxaolmn50/Decisions_17.5_mod.apk/file?dkey=xprp3fqgxiw&r=246
+25 - journeys = JOURNEYS
+26 - loves = LOVE SPARKS
+27 - sick = LOVE SICK
+https://www.mediafire.com/file/n5shdmdqkmhsk2z/love-sick-1.113.1-mod.apk/file
+28 - romance = ROMANCE FATE
+https://www.mediafire.com/file/ma7mkpcrx3iav0o/Romance_Fate_3.2.1_1733814201_latestmodapks.com.apk/file
+29 - maybe = MAYBE INTERACTIVE
+30 - [VAZIO]
+
+JOVENS (14+ ANOS) (31-40)
+31 - subway = SUBWAY SURFERS
+https://www.mediafire.com/file/30wwldur59yf2q4/Subway_Surfers_v3.44.0_Odranoel.apk/file
+32 - among = AMONG US (MOBILE)
+https://www.mediafire.com/file/y14k2z0cj33t5tf/Among+Us+v2023.7.12+Odranoel.apk/file
+33 - shark = HUNGRY SHARK WORLD
+https://www.mediafire.com/file/dotuhejgojxyfr8/Hungry-Shark-World-v6.3.9-RL-Android.apk/file
+34 - sharkev = HUNGRY SHARK EVOLUTION
+https://www.mediafire.com/file/gzrog4xizdhjpix/Hungry_shark_11.7.0.apk/file?dkey=apz0x9999kj&r=324
+35 - bit = BIT LIFE BR
+https://www.mediafire.com/file/i4qpbuo5vcmeovx/64-Bits-BitLifeBR-v1.17.11-Mod-Menu-Atualizado.apk/file
+https://www.mediafire.com/file/jqi39fi4iex39e8/32-Bits-BitLifeBR-v1.17.11-Mod-Menu-Atualizado.apk/file
+36 - gtasa = GTA SAN ANDREAS (MOBILE)
+https://www.mediafire.com/file/j57nxo748h5m0y6/GTA_SA_lite%2BModCleo%28Mali%29.zip
+37 - ff = FREE FIRE
+38 - mine = MINECRAFT PE
+https://www.mediafire.com/download/i6002f3lm984o70
+39 - pvz = PLANTA VS ZOMBIES
+40 - tr2 = TEMPLE RUN 2
+
+CAMINHÕES (41-50)
+41 - wtds = WORLD TRUCK DRIVER SIMULATOR
+https://www.mediafire.com/file_premium/xmdtvzv1bamvlre/WTDS-v1.422-RL-Android.apk/file
+42 - trd = TRUCK ROAD DRIVER
+https://www.mediafire.com/file/oqm965vy672d8zu/TRD_COM_DINHEIRO_INFINITO_%2526_LEVEL_MAXIMO_2.0.5.apk/file
+43 - gto = GLOBAL TRUCK ONLINE
+https://www.mediafire.com/error.php?errno=320&origin=download
+44 - universal = UNIVERSAL TRUCK SIMULATOR
+https://www.mediafire.com/file_premium/bpsixcgiqi2knes/UTS-v2.2.0-RL-Android.apk/file
+45 - motor = MOTOR DEPOT
+46 - trucksim = TRUCK SIM BRASIL
+47 - gts = GRAND TRUCK SIMULATOR 2
+48 - af = AMERICAN FARMING
+https://gotrends1.blogspot.com/2025/05/american-farming-v188-mod-apk-unlimited.html
+49 - wbus = WORLD BUS DRIVING SIMULATOR
+https://www.mediafire.com/file_premium/ywpjnf4oo5fwini/WBDS-v1.390.apk/file
+50 - [VAZIO]
+
+CARROS (51-60)
+51 - cxdr = CARX DRIFTING RACING 2
+https://www.mediafire.com/file/rohxn8fsem3ccvw/CarX-Drift-Racing-2-v1.35.0-Mod-APKGara.Com.apk/file
+52 - rr3 = REAL RACING 3
+https://modsfire.com/01F5Lw2g8o2JCUJ
+53 - carp = CAR PARKING MULTIPLAYER 2
+https://modsfire.com/WirZ6Xz4ur4sJtA
+54 - drivers = DRIVERS JOBS
+https://www.mediafire.com/file/n027gtfs5j9nht6/Drivers-Jobs-Online-Simulator-mod-apk-2025.apk/file
+55 - fury = RALLY FURY
+https://www.mediafire.com/file_premium/7c11h8z51vuj2qx/rally-fury-v1.115.apk/file
+56 - pd2 = PROJECT DRIFT 2.0
+https://www.mediafire.com/file/495l8skifwhpkqf/PROJECT+DRIFT+2.0+DINHEIRO+INFINITO.apk/file
+57 - frl = FR LEGENDS
+https://www.mediafire.com/file/cafvof8cdaixv0s/FR+Legends+v0.3.6+Odranoel.apk/file
+58 - retro = RETRO GARAGE
+https://www.terabox.app/portuguese/sharing/link?surl=KMY_T0W9oIExUSU7nivpxw
+59 - extreme = EXTREME CAR DRIVING SIMULATOR
+60 - car2 = CAR SIMULATOR 2
+
+FUTEBOL (61-70)
+61 - dls = DREAM LEAGUE SOCCER
+https://www.mediafire.com/file_premium/biulczsz56x5t7u/Dream-League-Soccer-v2025.Final-RL-Android.apk/file
+62 - fcmob = FC MOBILE
+https://www.mediafire.com/file/j07iycw51ltcqov/FC+MOBILE+24+v24.0.03.apk/file
+63 - wsc = WORLD SOCCER CHAMPIONS
+https://www.mediafire.com/file/7l9ksz1ng8ztjlb/64-Bits-WSC-Mod-v9.8.apk/file
+https://www.mediafire.com/file/2369trzmiwfdqb6/32-Bits-WSC-Mod-v9.8.apk/file
+64 - mss = MINI SOCCER STAR
+65 - bomba = BOMBA PATCH PPSSPP
+66 - pes = EFOOTBALL SOCCER PPSSPP
+67 - footl = FOOTBALL LEAGUE
+https://www.mediafire.com/file/7ixpsejsyn92e3b/Football_League_2025_v0.1.51_MOD.apk/file
+68 - hero = SCORE HERO
+https://www.mediafire.com/file/pmhmavygwi85ci2/score!_hero_mod_by_Henrique_.apk/file
+69 - vlhero = VL HERO
+70 - [VAZIO]
+
+MOTOS (71-80)
+71 - motow = MOTO WHEELIE 3D
+https://www.mediafire.com/file/7m3v8nd0hc25c7k/Moto_Wheelie_3D_v0.78_%2528HACKZ%25C3%2583O%2529_MOD.apk/file
+72 - eab = ELITE AUTO BRASIL
+https://www.mediafire.com/file/vevdbrgt4nsvrtg/Elite_Auto_Brasil_Mod_Dinheiro_Atualizado_2025.apk/file
+73 - traffic = TRAFFIC RIDER
+https://www.mediafire.com/file_premium/1ehnctnsutaxsh0/Traffic-Rider-v2.0-RL-Android.apk/file
+74 - [VAZIO]
+75 - [VAZIO]
+76 - [VAZIO]
+77 - [VAZIO]
+78 - [VAZIO]
+79 - [VAZIO]
+80 - [VAZIO]
+
+CARROS (CORRIDA) (81-90)
+81 - nfs = NEED FOR SPEED
+82 - csr2 = CSR RACING 2
+https://www.mediafire.com/file/mguabell3ucnqy6/CSR-Racing-2-v5.8.0-mod.com.apk/file
+83 - assoluto = ASSOLUTO RACING
+84 - ssr = STATIC SHIFT RACING
+85 - rebel = REBEL RACING
+86 - drift = DRIFT MAX PRO
+87 - cpmtr = CPM TRAFIC RACER
+88 - madout = MADOUT 2 BIG CITY
+https://www.mediafire.com/file/rjm3aybvwlskmr4/MADOUT2+BOC+NEW+MEGA+VIP+MOD+MENU+APK+V14.03+2024.7z
+89 - [VAZIO]
+90 - [VAZIO]
+
+CARROS + CORRIDA -3 (91-100)
+91 - dss = DRIVING SCHOOL SIMULATOR 
+https://www.mediafire.com/file/6bpzyv80dvqkw7c/driving_School_Sim_V_13.6.apk/file
+92 - dsse = DRIVING SCHOOL SIMULATOR: EVOLUTION
+https://www.mediafire.com/file/43gkh2teoz4j96u/Driving_School_Evo_V_1.70.6.apk/file
+93 - pixel = PIXEL CAR RACER
+94 - rds = REAL DRIVING SCHOOL
+95 - 
+96 - 
+97 - 
+98 - monop = MONOPOSTO
+https://www.mediafire.com/file/o8t0werhf1vb1wy/MONOPOSTO_MOD_v4.66_F1_SEASON_2025_By_Sanchezz.zip/file
+99 - offroad = OFFROAD OUTLAWS
+100 - driving = DRIVING ZONE
+
+JOVENS (14+ ANOS) (101-110)
+101 - dragon = DRAGON CITY
+https://www.mediafire.com/file/06p982xpe5m57yd/Dragon+City+v25.4.3+Odranoel.apk/file
+102 - geomatry = GEOMATRY DASH
+https://www.mediafire.com/file_premium/fowo6yo6b5t62t2/geometry-dash-v2.2.143.apk/file
+103 - terraria = TERRARIA (MOBILE)
+https://www.mediafire.com/file/t44va6j7f7fkzba/Terraria_v1.4.4.9.6_%255BTgzin%255D.apk/file
+104 - btd6 = BLOONS TOWER DEFENSE 6 (MOBILE)
+105 - house = HOUSE FLIPPER
+https://modsfire.com/download/BEmHJKmAB3NrNUu/4657e
+106 - five = FIVE NIGHTS AT FREDDYS
+107 - hungry = HUNGRY DRAGON
+108 - [VAZIO]
+109 - [VAZIO]
+110 - [VAZIO]
+
+JOGOS PC (111-120)
+111 - terrariapc = TERRARIA (PC)
+https://terraria-game.com/pt/programmy/skachat-terrariya-1-4-4-9-dlya-pk/#download
+112 - minepc = MINECRAFT (PC)
+113 - stardew = STARDEW VALLEY (PC)
+114 - gtav = GTA V (PC)
+115 - fm = FOOTBALL MANAGER
+116 - btd6pc = BLOONS TOWER DEFENSE 6 (PC)
+117 - simspc = THE SIMS (PC)
+118 - worldbox = WORLD BOX
+119 - [VAZIO]
+120 - [VAZIO]
+
+JOVENS (16+ ANOS) (121-130)
+121 - bully = BULLY (MOBILE)
+https://www.mediafire.com/file/9p8r96m03ve7v8m/MOD_MENU_E_GAME_PR_BR.zip/file - traducao
+https://www.mediafire.com/file/ixae5vh8roqf1ur/Bully+-+Bully+SEdition+FC.zip/file - apk
+122 - moonvale = MOONVALE
+https://www.mediafire.com/file/40adoffd1ob5yoh/moonvale+dinheiroinfinito.zip/file
+123 - gangstar = GANGSTAR VEGAS
+124 - marks = AMERICAN MARKSMAN
+125 - sod = SHADOW OF DEATH
+126 - swl = STICK WAR: LEGACY
+127 - [VAZIO]
+128 - [VAZIO]
+129 - [VAZIO]
+130 - [VAZIO]
+
+SÉRIE DE JOGOS (COD) (131-140)
+131 - cod = CALL OF DUTY: MOBILE
+132 - warzone = CALL OF DUTY: WARZONE
+133 - [VAZIO]
+134 - [VAZIO]
+135 - [VAZIO]
+136 - [VAZIO]
+137 - [VAZIO]
+138 - [VAZIO]
+139 - [VAZIO]
+140 - [VAZIO]
+
+OUTROS/GERAL (141-150)
+141 - superm = MY SUPERMARKET SIMULATOR 3D
+142 - lastday = LAST DAY ON EARTH
+143 - hitman = HITMAN SNIPER
+144 - sf2 = SHADOW FIGHT 2
+https://modsfire.com/download/5yUTzvokDykUNSd/93a1d
+145 - rfs = REAL FLIGHT SIMULATOR
+146 - flight = FLIGHT PILOT
+147 - zombie = ZOMBIE HUNTER 2
+148 - [VAZIO]
+149 - [VAZIO]
+150 - [VAZIO]
+
+NINTENDO (151-160)
+151 - pokego = POKEMON GO
+152 - [VAZIO]
+153 - [VAZIO]
+154 - [VAZIO]
+155 - [VAZIO]
+156 - [VAZIO]
+157 - [VAZIO]
+158 - [VAZIO]
+159 - [VAZIO]
+160 - [VAZIO]
+
+SÉRIE DE JOGOS (POPPY) (161-170)
+161 - poppy = POPPY PLAYTIME CHAPTER
+162 - poppy2 = POPPY PLAYTIME CHAPTER 2
+163 - poppy3 = POPPY PLAYTIME CHAPTER 3
+164 - poppy4 = POPPY PLAYTIME CHAPTER 4
+165 - poppy5 = POPPY PLAYTIME CHAPTER 5
+166 - poppy6 = POPPY PLAYTIME CHAPTER 6
+167 - poppy7 = POPPY PLAYTIME CHAPTER 7
+168 - poppy8 = POPPY PLAYTIME CHAPTER 8
+169 - [VAZIO]
+170 - [VAZIO]
+
+CATEGORIA VAZIA (171-180)
+171 - [VAZIO]
+172 - [VAZIO]
+173 - [VAZIO]
+174 - [VAZIO]
+175 - [VAZIO]
+176 - [VAZIO]
+177 - [VAZIO]
+178 - [VAZIO]
+179 - [VAZIO]
+180 - [VAZIO]
+
+CATEGORIA VAZIA (181-190)
+181 - [VAZIO]
+182 - [VAZIO]
+183 - [VAZIO]
+184 - [VAZIO]
+185 - [VAZIO]
+186 - [VAZIO]
+187 - [VAZIO]
+188 - [VAZIO]
+189 - [VAZIO]
+190 - [VAZIO]
+
+CATEGORIA VAZIA (191-200)
+191 - [VAZIO]
+192 - [VAZIO]
+193 - [VAZIO]
+194 - [VAZIO]
+195 - [VAZIO]
+196 - [VAZIO]
+197 - [VAZIO]
+198 - [VAZIO]
+199 - [VAZIO]
+200 - [VAZIO]
+
+APPS MOBILE (201-210)
+201 - capcut = CAPCUT (MOBILE)
+202 - snaptube = SNAPTUBE
+203 - [VAZIO]
+204 - [VAZIO]
+205 - [VAZIO]
+206 - [VAZIO]
+207 - [VAZIO]
+208 - [VAZIO]
+209 - [VAZIO]
+210 - [VAZIO]
+
+CATEGORIA VAZIA (211-220)
+211 - [VAZIO]
+212 - [VAZIO]
+213 - [VAZIO]
+214 - [VAZIO]
+215 - [VAZIO]
+216 - [VAZIO]
+217 - [VAZIO]
+218 - [VAZIO]
+219 - [VAZIO]
+220 - [VAZIO]
+
+APPS PC (221-230)
+221 - capcutpc = CAPCUT (PC)
+222 - photoshop = PHOTOSHOP
+223 - [VAZIO]
+224 - [VAZIO]
+225 - [VAZIO]
+226 - [VAZIO]
+227 - [VAZIO]
+228 - [VAZIO]
+229 - [VAZIO]
+230 - [VAZIO]
+
+CATEGORIA VAZIA (231-240)
+231 - [VAZIO]
+232 - [VAZIO]
+233 - [VAZIO]
+234 - [VAZIO]
+235 - [VAZIO]
+236 - [VAZIO]
+237 - [VAZIO]
+238 - [VAZIO]
+239 - [VAZIO]
+240 - [VAZIO]
+"""

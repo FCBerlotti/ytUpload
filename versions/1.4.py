@@ -3,7 +3,7 @@ import time
 import pyperclip
 import requests
 import subprocess
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date
 import openpyxl
 from openpyxl import Workbook
 from openpyxl.utils import get_column_letter
@@ -29,11 +29,13 @@ version = "1.4"
 # Comentarios sobre os jogos removidos e adicionados em "conteudos.py"
 # Atualização no sistema de notificação NTFY, escritas erradas e falta de conteudo em algumas chamadas
 
+"Funcionalidades para adicionar"
 # Correção na função do excel --escrever nome da funcao aqui-- ela anotava apenas o numero do video e se deu erro ou nao, agora ela anota a categoria e quais videos foram enviados ou não -- adicionar
 # Reformulação na abertura e fechamento do navegador "def closeNav()" -- adicionar
 # Organização - Funções agora são separadas por classes -- adicionar
 # Correção de erro ao fechar navegador, quando envio dava erro, não fechava a pagina do envio -- adicionar
 # Melhoramento em "def timeCalc()" agora a função é capaz de calcular o time para envio de todas as categorias e não só da categoria atual -- adicionar
+# Melhorar a semantica das variaveis e funções = nome das variaveis -- adicionar
 
 def ntfy(message):
     try:
@@ -130,7 +132,6 @@ def clickImage(click, imageSelect, conf, attempts):
 
             return True
         time.sleep(0.1)
-    #print(f"IMAGEM NAO ENCONTRADA - {imageSelect}")
     return False
 
 def errorFunction(etapa):
@@ -155,13 +156,13 @@ def closeNav():
     pg.press("enter")
 
 def aboutVideoInfos():
-    global tittle, desc, tittlePath
+    global tittle, desc, titlePath
 
     try:
-        with open(f"{tittlePath}", "r", encoding="utf-8") as file:
+        with open(f"{titlePath}", "r", encoding="utf-8") as file:
             tittle = file.read()
     except FileNotFoundError:
-        print(f"Erro: O arquivo '{tittlePath}' não foi encontrado.")
+        print(f"Erro: O arquivo '{titlePath}' não foi encontrado.")
     except Exception as e:
         print(f"Erro ao ler o arquivo: {str(e)}")
     
@@ -169,7 +170,7 @@ def aboutVideoInfos():
         with open(f"{descPath}", "r", encoding="utf-8") as arquivo:
             desc = arquivo.read()
     except FileNotFoundError:
-        print(f"Erro: O arquivo '{tittlePath}' não foi encontrado.")
+        print(f"Erro: O arquivo '{titlePath}' não foi encontrado.")
     except Exception as e:
         print(f"Erro ao ler o arquivo: {str(e)}")
            
@@ -245,13 +246,11 @@ class steps:
                     time.sleep(0.5)
                     pg.press('enter')
                     time.sleep(0.5)
-                    print("233")
         else:
             errorFunction("LinkFolderClick 246")
             return
         
         time.sleep(5)
-        print("239")
         pg.hotkey("ctrl", 'shift', "i")
         time.sleep(1)
         openConsole()
@@ -402,28 +401,25 @@ def dadosIniciais():
     global start, end, jumpDay, firstDate, errorList, postar, foundSelectorVideo, foundSelectorThumb, attemptsWhile
     foundSelectorVideo = r"C:/Users/felip/Desktop/Projetos/ytUpload/videos"
     foundSelectorThumb = r"C:/Users/felip/Desktop/Projetos/ytUpload/thumbs"
-    start = 4
-    end = 4
-    jumpDay = 10
-    firstDate = 5
+    start = 5
+    end = 8
+    jumpDay = 10 
+    firstDate = 7
     attemptsWhile = 0
     
 errorList = []
-postar = ["tabou", "carp", "traffic", "avl", "dss", "dsse"]
+postar = ["bloxf", "aha", "tabou", "shark", "gto", "carp", "wsc", "traffic"]
 
 for videoType in postar:
     dadosIniciais()
     info = conteudos[videoType]
-    tittlePath = info["titulo_arquivo"]
+    titlePath = info["titulo_arquivo"]
     descPath = info["desc_arquivo"]
     hour = info["horario"]
 
-    if videoType == "avl":
-        firstDate = 7
-    elif videoType == "dss":
-        firstDate = 3
-    elif videoType == "dsse":
-        firstDate = 4
+    data_atual = (date.today()).day 
+    if data_atual == 28:
+        firstDate += 1
         
     ntfy(f"INICIANDO ENVIO DE {videoType} {int(postar.index(videoType))+1}/{len(postar)}\nVersão:{version}")
 
@@ -453,7 +449,7 @@ while len(errorList) > 0 or attemptsWhile < 3:
     for videoType, videoNumber, dateSelect in errorList:
         errorInfo = False
         info = conteudos[videoType]
-        tittlePath = info["titulo_arquivo"]
+        titlePath = info["titulo_arquivo"]
         descPath = info["desc_arquivo"]
         hour = info["horario"]
         dateSelect = dateSelect
