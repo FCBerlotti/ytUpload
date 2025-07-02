@@ -20,7 +20,7 @@ INFANTIL (WORLDS) (11-20)
 15 - avl = AVATAR LIFE
 16 - miga = MIGA WORLD
 17 - adorable = ADORABLE HOME
-18 - [VAZIO]
+18 - linda = LINDA BROWN: SERIE INTERATIVA
 19 - [VAZIO]
 20 - [VAZIO]
 
@@ -105,15 +105,15 @@ CARROS (CORRIDA) (81-90)
 86 - drift = DRIFT MAX PRO
 87 - cpmtr = CPM TRAFIC RACER
 88 - madout = MADOUT 2 BIG CITY
-89 - [VAZIO]
-90 - [VAZIO]
+89 - asphalt8 = ASPHALT NITRO 8
+90 - asphalt9 = ASPHALT NITRO 9: LEGENDS
 
 CARROS + CORRIDA -3 (91-100)
 91 - dss = DRIVING SCHOOL SIMULATOR 
 92 - dsse = DRIVING SCHOOL SIMULATOR: EVOLUTION
 93 - pixel = PIXEL CAR RACER
 94 - rds = REAL DRIVING SCHOOL
-95 - 
+95 - car3 = CAR SIMULATOR 3
 96 - 
 97 - 
 98 - monop = MONOPOSTO
@@ -128,8 +128,8 @@ JOVENS (14+ ANOS) (101-110)
 105 - house = HOUSE FLIPPER
 106 - five = FIVE NIGHTS AT FREDDYS
 107 - hungry = HUNGRY DRAGON
-108 - [VAZIO]
-109 - [VAZIO]
+108 - stardmob = STARDEW VALLEY (MOBILE)
+109 - tsunami = ZOMBIE TSUNAMI
 110 - [VAZIO]
 
 JOGOS PC (111-120)
@@ -151,8 +151,8 @@ JOVENS (16+ ANOS) (121-130)
 124 - marks = AMERICAN MARKSMAN
 125 - sod = SHADOW OF DEATH
 126 - swl = STICK WAR: LEGACY
-127 - [VAZIO]
-128 - [VAZIO]
+127 - boxmob = WORLD BOX (MOBILE)
+128 - gangrio = GANGSTAR RIO
 129 - [VAZIO]
 130 - [VAZIO]
 
@@ -201,7 +201,7 @@ SÉRIE DE JOGOS (POPPY) (161-170)
 166 - poppy6 = POPPY PLAYTIME CHAPTER 6
 167 - poppy7 = POPPY PLAYTIME CHAPTER 7
 168 - poppy8 = POPPY PLAYTIME CHAPTER 8
-169 - [VAZIO]
+169 - poppy9 = POPPY PLAYTIME CHAPTER 9
 170 - [VAZIO]
 
 CATEGORIA VAZIA (171-180)
@@ -243,7 +243,7 @@ CATEGORIA VAZIA (191-200)
 APPS MOBILE (201-210)
 201 - capcut = CAPCUT (MOBILE)
 202 - snaptube = SNAPTUBE
-203 - [VAZIO]
+203 - photomob = PHOTOSHOP (MOBILE)
 204 - [VAZIO]
 205 - [VAZIO]
 206 - [VAZIO]
@@ -617,6 +617,12 @@ conteudos = {
         "desc_arquivo": "desc/poppy3.txt",
         "horario": "01:00"
     },
+    "photomob": {
+        "pasta": r"C:\Users\Luis Carlos\Desktop\FCBerlotti\ytUpload\videos\photomob",
+        "titulo_arquivo": "tittle/photomob.txt",
+        "desc_arquivo": "desc/photomob.txt",
+        "horario": "01:00"
+    },
     "poclove": {
         "pasta": r"C:\Users\Luis Carlos\Desktop\FCBerlotti\ytUpload\videos\poclove",
         "titulo_arquivo": "tittle/poclove.txt",
@@ -742,6 +748,12 @@ conteudos = {
         "titulo_arquivo": "tittle/rebel.txt",
         "desc_arquivo": "desc/rebel.txt",
         "horario": "17:00"
+    },
+    "car3": {
+        "pasta": r"C:\Users\Luis Carlos\Desktop\FCBerlotti\ytUpload\videos\car3",
+        "titulo_arquivo": "tittle/car3.txt",
+        "desc_arquivo": "desc/car3.txt",
+        "horario": "18:00"
     },
     "house": {
         "pasta": r"C:\Users\Luis Carlos\Desktop\FCBerlotti\ytUpload\videos\house",
@@ -899,6 +911,12 @@ conteudos = {
         "desc_arquivo": "desc/simspc.txt",
         "horario": "20:00"
     },
+    "boxmob": {
+        "pasta": r"C:\Users\Luis Carlos\Desktop\FCBerlotti\ytUpload\videos\boxmob",
+        "titulo_arquivo": "tittle/boxmob.txt",
+        "desc_arquivo": "desc/boxmob.txt",
+        "horario": "21:00"
+    },
     "zombie": {
         "pasta": r"C:\Users\Luis Carlos\Desktop\FCBerlotti\ytUpload\videos\zombie",
         "titulo_arquivo": "tittle/zombie.txt",
@@ -916,6 +934,12 @@ conteudos = {
         "titulo_arquivo": "tittle/mycafe.txt",
         "desc_arquivo": "desc/mycafe.txt",
         "horario": "09:00"
+    },
+    "linda": {
+        "pasta": r"C:\Users\Luis Carlos\Desktop\FCBerlotti\ytUpload\videos\linda",
+        "titulo_arquivo": "tittle/linda.txt",
+        "desc_arquivo": "desc/linda.txt",
+        "horario": "10:00"
     },
     "romance": {
         "pasta": r"C:\Users\Luis Carlos\Desktop\FCBerlotti\ytUpload\videos\romance",
@@ -959,6 +983,12 @@ conteudos = {
         "desc_arquivo": "desc/worldbox.txt",
         "horario": "20:00"
     },
+    "gangrio": {
+        "pasta": r"C:\Users\Luis Carlos\Desktop\FCBerlotti\ytUpload\videos\gangrio",
+        "titulo_arquivo": "tittle/gangrio.txt",
+        "desc_arquivo": "desc/gangrio.txt",
+        "horario": "21:00"
+    },
     "poppy8": {
         "pasta": r"C:\Users\Luis Carlos\Desktop\FCBerlotti\ytUpload\videos\poppy8",
         "titulo_arquivo": "tittle/poppy8.txt",
@@ -995,17 +1025,41 @@ conteudos = {
         "desc_arquivo": "desc/vlhero.txt",
         "horario": "15:00"
     },
+    "asphalt8": {
+        "pasta": r"C:\Users\Luis Carlos\Desktop\FCBerlotti\ytUpload\videos\asphalt8",
+        "titulo_arquivo": "tittle/asphalt8.txt",
+        "desc_arquivo": "desc/asphalt8.txt",
+        "horario": "17:00"
+    },
     "offroad": {
         "pasta": r"C:\Users\Luis Carlos\Desktop\FCBerlotti\ytUpload\videos\offroad",
         "titulo_arquivo": "tittle/offroad.txt",
         "desc_arquivo": "desc/offroad.txt",
         "horario": "18:00"
     },
+    "tsunami": {
+        "pasta": r"C:\Users\Luis Carlos\Desktop\FCBerlotti\ytUpload\videos\tsunami",
+        "titulo_arquivo": "tittle/tsunami.txt",
+        "desc_arquivo": "desc/tsunami.txt",
+        "horario": "19:00"
+    },
+    "poppy9": {
+        "pasta": r"C:\Users\Luis Carlos\Desktop\FCBerlotti\ytUpload\videos\poppy9",
+        "titulo_arquivo": "tittle/poppy9.txt",
+        "desc_arquivo": "desc/poppy9.txt",
+        "horario": "01:00"
+    },
     "monop": {
         "pasta": r"C:\Users\Luis Carlos\Desktop\FCBerlotti\ytUpload\videos\monop",
         "titulo_arquivo": "tittle/monop.txt",
         "desc_arquivo": "desc/monop.txt",
         "horario": "18:00"
+    },
+    "stardmob": {
+        "pasta": r"C:\Users\Luis Carlos\Desktop\FCBerlotti\ytUpload\videos\stardmob",
+        "titulo_arquivo": "tittle/stardmob.txt",
+        "desc_arquivo": "desc/stardmob.txt",
+        "horario": "19:00"
     },
     "tr2": {
         "pasta": r"C:\Users\Luis Carlos\Desktop\FCBerlotti\ytUpload\videos\tr2",
@@ -1018,6 +1072,12 @@ conteudos = {
         "titulo_arquivo": "tittle/car2.txt",
         "desc_arquivo": "desc/car2.txt",
         "horario": "14:00"
+    },
+    "asphalt9": {
+        "pasta": r"C:\Users\Luis Carlos\Desktop\FCBerlotti\ytUpload\videos\asphalt9",
+        "titulo_arquivo": "tittle/asphalt9.txt",
+        "desc_arquivo": "desc/asphalt9.txt",
+        "horario": "17:00"
     },
     "driving": {
         "pasta": r"C:\Users\Luis Carlos\Desktop\FCBerlotti\ytUpload\videos\driving",

@@ -31,9 +31,22 @@ def split_and_rename_video(input_video_path, output_folder="video_parts"):
     Divide um vídeo em segmentos de 5 segundos e renomeia cada parte
     de acordo com a lista fornecida.
     """
+
+    game_names = {
+        18: "linda",
+        89: "asphalt8",
+        90: "asphalt9",
+        95: "car3",
+        108: "stardmob",
+        109: "tsunami",
+        127: "boxmob",
+        128: "gangrio",
+        167: "poppy7",
+        203: "photomob"
+    }
     
     # Dicionário com as abreviações dos jogos/apps
-    game_names = {
+    """game_names = {
     # INFANTIL MOBILE (1-10)
     1: "sims",
     2: "roblox",
@@ -52,6 +65,7 @@ def split_and_rename_video(input_video_path, output_folder="video_parts"):
     15: "avl",
     16: "miga",
     17: "adorable",
+    18: "linda",
 
     # INFANTIL (HISTÓRIAS) (21-30)
     21: "chapters",
@@ -124,13 +138,16 @@ def split_and_rename_video(input_video_path, output_folder="video_parts"):
     86: "drift",
     87: "cpmtr",
     88: "madout",
+    89: "asphalt8",
+    89: "asphalt9",
 
     # CARROS + CORRIDA -3 (91-100)
     91: "dss",
     92: "dsse",
     93: "pixel",
     94: "rds",
-    98: "monoposto",
+    95: "car3",
+    98: "monop",
     99: "offroad",
     100: "driving",
 
@@ -142,6 +159,8 @@ def split_and_rename_video(input_video_path, output_folder="video_parts"):
     105: "house",
     106: "five",
     107: "hungry",
+    108: "stardmob",
+    109: "tsunami",
 
     # JOGOS PC (111-120)
     111: "terrariapc",
@@ -160,6 +179,8 @@ def split_and_rename_video(input_video_path, output_folder="video_parts"):
     124: "marks",
     125: "sod",
     126: "swl",
+    127: "boxmob",
+    128: "gangrio", 
 
     # SÉRIE DE JOGOS (COD) (131-140)
     131: "cod",
@@ -186,15 +207,17 @@ def split_and_rename_video(input_video_path, output_folder="video_parts"):
     166: "poppy6",
     167: "poppy7",
     168: "poppy8",
+    169: "poppy9",
 
     # APPS MOBILE (201-210)
     201: "capcut",
     202: "snaptube",
+    203: "photomob",
 
     # APPS PC (221-230)
     221: "capcutpc",
     222: "photoshop",
-    }
+    }"""
     
     # Verificar se o arquivo de vídeo existe
     if not os.path.exists(input_video_path):
@@ -276,7 +299,7 @@ def split_and_rename_video(input_video_path, output_folder="video_parts"):
 # Exemplo de uso
 if __name__ == "__main__":
     # Substitua pelo caminho do seu vídeo
-    video_path = "./video.mp4"  # Coloque aqui o nome do seu arquivo de vídeo
+    video_path = "./VIDEOS.mp4"  # Coloque aqui o nome do seu arquivo de vídeo
     
     print("Iniciando divisão do vídeo...")
     split_and_rename_video(video_path)
