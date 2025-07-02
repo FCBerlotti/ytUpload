@@ -16,12 +16,13 @@ contador = 0
 time_soma = 0
 videoUploaded = False
 errorInfo = False
-dataVerify = (date.today()).day 
+startDate = (date.today()).day 
 version = "1.5"
 
 "Funcionalidades adicionadas na versão 1.5"
 # Reformulação na abertura e fechamento do navegador "def closeNav()" -- adicionado
 # Correção de erro ao fechar navegador, quando envio dava erro, não fechava a pagina do envio -- adicionado
+# Variavel para atualizacao de data, caso comece em um dia e termine em outro
 
 "Funcionalidades para adicionar"
 # Correção na função do excel --escrever nome da funcao aqui-- ela anotava apenas o numero do video e se deu erro ou nao, agora ela anota a categoria e quais videos foram enviados ou não -- adicionar
@@ -166,7 +167,7 @@ def aboutVideoInfos():
         with open(f"{descPath}", "r", encoding="utf-8") as arquivo:
             desc = arquivo.read()
     except FileNotFoundError:
-        print(f"Erro: O arquivo '{titlePath}' não foi encontrado.")
+        print(f"Erro: O arquivo '{descPath}' não foi encontrado.")
     except Exception as e:
         print(f"Erro ao ler o arquivo: {str(e)}")
            
@@ -397,14 +398,14 @@ def dadosIniciais():
     global start, end, jumpDay, firstDate, errorList, postar, foundSelectorVideo, foundSelectorThumb, attemptsWhile
     foundSelectorVideo = r"C:/Users/felip/Desktop/Projetos/ytUpload/videos"
     foundSelectorThumb = r"C:/Users/felip/Desktop/Projetos/ytUpload/thumbs"
-    start = 5
-    end = 8
+    start = 1
+    end = 1
     jumpDay = 10
-    firstDate = 5
+    firstDate = 50
     attemptsWhile = 0
     
 errorList = []
-postar = ["mss", "sf2"]
+postar = ["mss"]
 
 for videoType in postar:
     dadosIniciais()
@@ -414,7 +415,7 @@ for videoType in postar:
     hour = info["horario"]
 
     actualDate = (date.today()).day 
-    if actualDate > dataVerify:
+    if actualDate > startDate:
         firstDate -= 1
         
     ntfy(f"INICIANDO ENVIO DE {videoType} {int(postar.index(videoType))+1}/{len(postar)}\nVersão:{version}")
