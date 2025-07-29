@@ -1,6 +1,9 @@
 import os
 from moviepy.editor import VideoFileClip, AudioFileClip, concatenate_videoclips
 import glob
+from pathlib import Path
+
+base_path = Path(__file__).parent
 
 def duplicate_videos_with_music(videos_folder, music_folder, output_folder="final_videos_with_music"):
     """
@@ -136,9 +139,9 @@ def main():
     """
     
     # CONFIGURAÇÃO - Altere estes caminhos conforme necessário
-    videos_folder = r"C:\Users\felip\Desktop\Projetos\ytUpload\videosGeral\video_parts"              # Pasta com pkxd.mp4, bloxf.mp4, etc. (5s cada)
-    music_folder = r"C:\Users\felip\Desktop\Projetos\ytUpload\videosGeral\musics"                    # Pasta com music1.mp3, music2.mp3, etc.
-    output_folder = "final_videos_with_music"  # Pasta onde salvar os resultados
+    videos_folder = base_path / "video_parts"              # Pasta com pkxd.mp4, bloxf.mp4, etc. (5s cada)
+    music_folder = base_path / "musics"                    # Pasta com music1.mp3, music2.mp3, etc.
+    output_folder = base_path / "final_videos_with_music"  # Pasta onde salvar os resultados
     
     print("🎵 DUPLICADOR DE VÍDEOS COM MÚSICA")
     print("=" * 50)

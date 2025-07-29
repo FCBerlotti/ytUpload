@@ -1,5 +1,8 @@
 import os
 import math
+from pathlib import Path
+
+base_path = Path(__file__).parent
 
 # Importar moviepy de forma mais robusta - testando diferentes formas
 VideoFileClip = None
@@ -26,35 +29,18 @@ if VideoFileClip is None:
     print("❌ Erro: VideoFileClip não pôde ser importado")
     exit(1)
 
-def split_and_rename_video(input_video_path, output_folder="video_parts"):
+def split_and_rename_video(input_video_path, output_folder= base_path / "video_parts"):
     """
     Divide um vídeo em segmentos de 5 segundos e renomeia cada parte
     de acordo com a lista fornecida.
     """
-
-    game_names = {
-        18: "linda",
-        89: "asphalt8",
-        90: "asphalt9",
-        95: "car3",
-        108: "stardmob",
-        109: "tsunami",
-        127: "boxmob",
-        128: "gangrio",
-        167: "poppy7",
-        203: "photomob"
-    }
-    
     # Dicionário com as abreviações dos jogos/apps
-    """game_names = {
+    game_names = {
     # INFANTIL MOBILE (1-10)
     1: "sims",
     2: "roblox",
     3: "bloxf",
     4: "poclove",
-    5: "pou",
-    6: "mta2",
-    7: "mtt",
     8: "mycafe",
 
     # INFANTIL (WORLDS) (11-20)
@@ -139,7 +125,7 @@ def split_and_rename_video(input_video_path, output_folder="video_parts"):
     87: "cpmtr",
     88: "madout",
     89: "asphalt8",
-    89: "asphalt9",
+    90: "asphalt9",
 
     # CARROS + CORRIDA -3 (91-100)
     91: "dss",
@@ -217,7 +203,7 @@ def split_and_rename_video(input_video_path, output_folder="video_parts"):
     # APPS PC (221-230)
     221: "capcutpc",
     222: "photoshop",
-    }"""
+    }
     
     # Verificar se o arquivo de vídeo existe
     if not os.path.exists(input_video_path):
@@ -299,7 +285,7 @@ def split_and_rename_video(input_video_path, output_folder="video_parts"):
 # Exemplo de uso
 if __name__ == "__main__":
     # Substitua pelo caminho do seu vídeo
-    video_path = "./VIDEOS.mp4"  # Coloque aqui o nome do seu arquivo de vídeo
+    video_path = base_path / "videoCompleto.mp4"  # Coloque aqui o nome do seu arquivo de vídeo
     
     print("Iniciando divisão do vídeo...")
     split_and_rename_video(video_path)

@@ -10,6 +10,9 @@ from openpyxl.utils import get_column_letter
 from openpyxl.styles import PatternFill
 from conteudos import conteudos
 import json
+from pathlib import Path
+
+base_path = Path(__file__).parent
 
 consoleCounter = 0
 contador = 0
@@ -23,6 +26,7 @@ version = "1.5"
 # Reformulação na abertura e fechamento do navegador "def closeNav()" -- adicionado
 # Correção de erro ao fechar navegador, quando envio dava erro, não fechava a pagina do envio -- adicionado
 # Variavel para atualizacao de data, caso comece em um dia e termine em outro
+# Caminhos para as pastas agora são definidos automaticos, de acordo com o computador em que está, utilizando o 'base_path'
 
 "Funcionalidades para adicionar"
 # Correção na função do excel --escrever nome da funcao aqui-- ela anotava apenas o numero do video e se deu erro ou nao, agora ela anota a categoria e quais videos foram enviados ou não -- adicionar
@@ -396,16 +400,22 @@ def openNavConfig():
 
 def dadosIniciais():
     global start, end, jumpDay, firstDate, errorList, postar, foundSelectorVideo, foundSelectorThumb, attemptsWhile
-    foundSelectorVideo = r"C:/Users/felip/Desktop/Projetos/ytUpload/videos"
-    foundSelectorThumb = r"C:/Users/felip/Desktop/Projetos/ytUpload/thumbs"
-    start = 1
-    end = 1
+    foundSelectorVideo = f"{base_path / 'videos'}"
+    foundSelectorThumb = f"{base_path / 'thumbs'}"
+    start = 8
+    end = 8
     jumpDay = 10
-    firstDate = 50
+    firstDate = 13
     attemptsWhile = 0
+
+   #""" TODO criar verificacao para quando atingir o limite de envio diario
+    #js path do erro do yt de maximo de envios : document.querySelector("#dialog > div > ytcp-animatable.button-area.metadata-fade-in-section.style-scope.ytcp-uploads-dialog > div > div.left-button-area.style-scope.ytcp-uploads-dialog > ytcp-ve > div.error-short.style-scope.ytcp-uploads-dialog")
+    #retorna isso: 'O limite diário de envios foi alcançado'
+    #colocar time sleep para enviar isso dps que der o next 
+    #o ultimo codigo do gemini funciona se colar e logo em seguida dar ctrl shift i, a pagina precisa estar clicada para copiar o texto"""
     
 errorList = []
-postar = ["mss"]
+postar = ["car2"]
 
 for videoType in postar:
     dadosIniciais()
@@ -422,6 +432,8 @@ for videoType in postar:
 
     for videoNumber in range(start, end+1):
         time_start = time.time()
+        while videoNumber > 10:
+            videoNumber -= 10
         aboutVideoInfos()
         dateCalculate()
         errorInfo = False
