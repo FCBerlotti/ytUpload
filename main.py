@@ -421,7 +421,7 @@ def dadosIniciais():
     #o ultimo codigo do gemini funciona se colar e logo em seguida dar ctrl shift i, a pagina precisa estar clicada para copiar o texto"""
     
 errorList = []
-postar = ["motow", "dss", "dragon", "bully"]
+postar = ["among", "moonvale"]
 
 for videoType in postar:
     dadosIniciais()
@@ -429,6 +429,15 @@ for videoType in postar:
     titlePath = info["titulo_arquivo"]
     descPath = info["desc_arquivo"]
     hour = info["horario"]
+
+    if videoType == "among":
+        firstDate = 2
+        start = 9
+        end = 9
+    else:
+        firstDate = 11
+        start = 9
+        end = 11
 
     actualDate = (date.today()).day 
     if actualDate > startDate:

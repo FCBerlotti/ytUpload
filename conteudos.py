@@ -454,9 +454,9 @@ conteudos = {
         "desc_arquivo": "desc/minepc.txt",
         "horario": "20:00"
     },
-    "moonvale": {
-        "titulo_arquivo": "tittle/moonvale.txt",
-        "desc_arquivo": "desc/moonvale.txt",
+    "moon": {
+        "titulo_arquivo": "tittle/moon.txt",
+        "desc_arquivo": "desc/moon.txt",
         "horario": "21:00"
     },
     "warzone": {
