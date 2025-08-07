@@ -83,7 +83,7 @@ class navigator:
             pyperclip.copy('allow pasting')
             time.sleep(1)
             pg.hotkey('ctrl', 'v')
-            time.sleep(0.25)
+            time.sleep(0.35)
             pg.press('enter')
             time.sleep(0.2)
             pg.write("allow pasting")
@@ -168,7 +168,7 @@ def errorFunction(etapa):
     logs.salvar_dados_excel('Error')
     errorList.append((videoType, videoNumber, dateSelect))
     timeCalc()
-    ntfy(f"❌❌❌❌❌\nPrevisão de termino: {horario_estimado}\nNumero do Video: {videoNumber}/{end}\nCategoria: {videoType}\nEtapa do Erro: {etapa}\nVersão:{version}\nOpenConsole{VopenConsole}")
+    ntfy(f"❌❌❌❌❌\nPrevisão de termino: {horario_estimado}\nNumero do Video: {videoNumber}/{end}\nCategoria: {videoType}\nEtapa do Erro: {etapa}\nVersão:{version}\nOpenConsole: {VopenConsole}")
 
 def aboutVideoInfos():
     global tittle, desc, titlePath
@@ -436,8 +436,7 @@ def userSelectF():
     #o ultimo codigo do gemini funciona se colar e logo em seguida dar ctrl shift i, a pagina precisa estar clicada para copiar o texto"""
     
 errorList = []
-postar = ["mine", "af"]
-#postar = ["mine", "af", "monop", "wbus", "extreme", "tr2", "car2"]
+postar = ["monop", "wbus", "extreme", "tr2", "car2"]
 
 for videoType in postar:
     dadosIniciais()
@@ -451,12 +450,12 @@ for videoType in postar:
         goalDate -= 1
 
     if videoType == "wbus" or videoType == "extreme":
-        goalDate = 1
+        calculateDates.goalDateF("08/08/2025", fullStartDate)
     elif videoType == "tr2" or videoType == "car2":
-        goalDate = 2
+        calculateDates.goalDateF("09/08/2025", fullStartDate)
     else:
-        calculateDates.goalDateF("27/08/2025", fullStartDate)
-        start = 10
+        start = 9
+        calculateDates.goalDateF("17/08/2025", fullStartDate)
         
     ntfy(f"INICIANDO ENVIO DE {videoType} {int(postar.index(videoType))+1}/{len(postar)}\nVersão:{version}")
 
@@ -481,7 +480,7 @@ for videoType in postar:
         navigator.closeNav("")
         firstDate += jumpDay
         timeCalc()
-        ntfy(f"✅✅✅✅✅\nPrevisão de termino: {horario_estimado}\nVideos: {videoNumber}/{end}\nCategoria: {videoType}\nVersão:{version}\nOpenConsole{VopenConsole}")
+        ntfy(f"✅✅✅✅✅\nPrevisão de termino: {horario_estimado}\nVideos: {videoNumber}/{end}\nCategoria: {videoType}\nVersão:{version}\nOpenConsole: {VopenConsole}")
 
 while len(errorList) > 0 or attemptsWhile < 3:
     attemptsWhile += 1
@@ -494,7 +493,7 @@ while len(errorList) > 0 or attemptsWhile < 3:
         dateSelect = dateSelect
 
         time_start = time.time()
-        ntfy(f"INICIANDO SESSAO DE ERROS\nCategoria: {videoType}\nNumero do Video: {videoNumber}\nData da Postagem: {dateSelect}\nVersão:{version}\nOpenConsole{VopenConsole}")
+        ntfy(f"INICIANDO SESSAO DE ERROS\nCategoria: {videoType}\nNumero do Video: {videoNumber}\nData da Postagem: {dateSelect}\nVersão:{version}\nOpenConsole: {VopenConsole}")
         aboutVideoInfos()
         navigator.openNav(ytStudioLink)
         time.sleep(5)
@@ -508,7 +507,7 @@ while len(errorList) > 0 or attemptsWhile < 3:
         navigator.closeNav("")
         errorList.remove((videoType, videoNumber, dateSelect))
         timeCalc()
-        ntfy(f"✅✅✅✅✅\nPrevisão de termino: {horario_estimado}\nNumero do Video: {videoNumber}/{end}\nCategoria: {videoType}\nVersão:{version}\nOpenConsole{VopenConsole}")
+        ntfy(f"✅✅✅✅✅\nPrevisão de termino: {horario_estimado}\nNumero do Video: {videoNumber}/{end}\nCategoria: {videoType}\nVersão:{version}\nOpenConsole: {VopenConsole}")
 
 navigator.closeNav("Final")
 ntfy("TODOS OS ENVIOS FORAM FINALIZADOS")
