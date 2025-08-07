@@ -65,7 +65,7 @@ def openNav(site):
 def openConsole():
     global consoleCounter
     pg.hotkey("ctrl", "shift", "i")
-    for i in range(0,100):
+    for i in range(0,50):
         inspecActivity = pg.locateCenterOnScreen("images/console/inspecActivity.png", confidence=0.95)
         if inspecActivity is not None and len(inspecActivity) == 2:
             pg.hotkey("ctrl", "p")
@@ -180,11 +180,21 @@ def aboutVideoInfos():
         print(f"Erro: O arquivo '{descPath}' não foi encontrado.")
     except Exception as e:
         print(f"Erro ao ler o arquivo: {str(e)}")
-           
-def dateCalculate():
-    global dateSelect, firstDate
-    today = datetime.now()
-    dateSelect = (today + timedelta(days=firstDate)).strftime("%d/%m/%Y")
+
+class calculateDates:    
+    def dateCalculate():
+        global dateSelect, firstDate
+        today = datetime.now()
+        dateSelect = (today + timedelta(days=firstDate)).strftime("%d/%m/%Y")
+    def goalDate():
+        hoje = date.today()
+        alvo = "2025-08-27"
+        try:
+            ano, mes, dia = map(int, alvo.split('-'))
+            data_futura = date(ano, mes, dia)
+            calculoDate = data_futura - hoje
+        except ValueError:
+            print("Formato de data inválido. Tente novamente no formato AAAA-MM-DD.")
 
 class videoConfigs:
     def tittleDescThumb():
@@ -405,13 +415,15 @@ def openNavConfig():
     openConsole()
 
 def dadosIniciais():
-    global start, end, jumpDay, firstDate, errorList, postar, foundSelectorVideo, foundSelectorThumb, attemptsWhile
+    global start, end, jumpDay, firstDate, errorList, postar, foundSelectorVideo, foundSelectorThumb, userSelect, attemptsWhile, contentLanguague
     foundSelectorVideo = f"{base_path / 'videos'}"
     foundSelectorThumb = f"{base_path / 'thumbs'}"
-    start = 9
-    end = 11
+    start = 8
+    end = 10
     jumpDay = 10
-    firstDate = 11
+    firstDate = 0
+    userSelect = "berlotti" # berlotti / fabio
+    contentLanguague = "NULL" # pt-br / en-us / es-es # Usar para escolher qual tipo de conteudo vai ser postado e em qual linguagem vai ser postado
     attemptsWhile = 0
 
    #""" TODO criar verificacao para quando atingir o limite de envio diario
@@ -421,7 +433,7 @@ def dadosIniciais():
     #o ultimo codigo do gemini funciona se colar e logo em seguida dar ctrl shift i, a pagina precisa estar clicada para copiar o texto"""
     
 errorList = []
-postar = ["among", "moonvale"]
+postar = ["mine", "af", "monop", "wbus", "extreme", "tr2", "car2"]
 
 for videoType in postar:
     dadosIniciais()
@@ -430,18 +442,17 @@ for videoType in postar:
     descPath = info["desc_arquivo"]
     hour = info["horario"]
 
-    if videoType == "among":
-        firstDate = 2
-        start = 9
-        end = 9
-    else:
-        firstDate = 11
-        start = 9
-        end = 11
-
     actualDate = (date.today()).day 
     if actualDate > startDate:
         firstDate -= 1
+
+    if videoType == "wbus" or videoType == "extreme":
+        firstDate = 1
+    elif videoType == "tr2" or videoType == "car2":
+        firstDate = 2
+    else:
+        firstDate = 1
+        start = 10
         
     ntfy(f"INICIANDO ENVIO DE {videoType} {int(postar.index(videoType))+1}/{len(postar)}\nVersão:{version}")
 
@@ -450,7 +461,7 @@ for videoType in postar:
         while videoNumber > 10:
             videoNumber -= 10
         aboutVideoInfos()
-        dateCalculate()
+        calculateDates.dateCalculate()
         errorInfo = False
         openNav("https://studio.youtube.com/channel/UCPDa_GVRpoAwRVCSnAZ8V_A/videos/")
         time.sleep(5)
