@@ -1,14 +1,6 @@
-from datetime import date
+from datetime import date, datetime
 
+startDate = (date.today()).day 
+futureDate = datetime.strptime("27/07/2025", "%d/%m/%Y").date()
 
-hoje = date.today()
-alvo = "2025-08-27"
-try:
-    ano, mes, dia = map(int, alvo.split('-'))
-    data_futura = date(ano, mes, dia)
-    calculoDate = data_futura - hoje
-except ValueError:
-    print("Formato de data inválido. Tente novamente no formato AAAA-MM-DD.")
-
-
-print(calculoDate)
+print(futureDate.day)

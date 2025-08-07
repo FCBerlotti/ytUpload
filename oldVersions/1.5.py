@@ -13,20 +13,21 @@ import json
 from pathlib import Path
 
 base_path = Path(__file__).parent
+
 consoleCounter = 0
 contador = 0
 time_soma = 0
 videoUploaded = False
 errorInfo = False
 startDate = (date.today()).day 
-fullStartDate = date.today()
-version = "1.6"
+version = "1.5"
 
-"Funcionalidades adicionadas na versão 1.6"
-# Com a criação da função 'goalDateF' agora é possivel inserir a data inicial pela própria data e não a quantos dias vai ser --adicionado
-# Iniciando criação de identificação de usuarios, variavel ytStudioLink substitui a necessidade de inserir o link sempre que chamar o openNav() --adicionado
-# Iniciando criação de identificação de usuarios, criação de variavel userSelect para identificar qual user esta utilizando o sistema --adicionado
-# Nova classe 'navigator', criada para organização de funcoes de comandos do navegador --adicionado
+"Funcionalidades adicionadas na versão 1.5"
+# Reformulação na abertura e fechamento do navegador "def closeNav()" -- adicionado
+# Correção de erro ao fechar navegador, quando envio dava erro, não fechava a pagina do envio -- adicionado
+# Variavel para atualizacao de data, caso comece em um dia e termine em outro
+# Caminhos para as pastas agora são definidos automaticos, de acordo com o computador em que está, utilizando o 'base_path'
+# Correção na ativação do allow pasting em 'openConsole()' -- adicionado
 
 "Funcionalidades para adicionar"
 # Correção na função do excel --escrever nome da funcao aqui-- ela anotava apenas o numero do video e se deu erro ou nao, agora ela anota a categoria e quais videos foram enviados ou não -- adicionar
@@ -56,70 +57,47 @@ def timeCalc():
     tempo_estimado = (time.time() + ((time_soma / contador)*(end-videoNumber)))
     horario_estimado = datetime.fromtimestamp((time.time() + ((time_soma / contador)*(end-videoNumber)))).strftime('%Y-%m-%d %H:%M:%S')
 
-class navigator:
-    def openNav(site):
-        caminho_chrome = "C:/Program Files/Google/Chrome/Application/chrome.exe"  # Atualize o caminho se necessário
-        comando = [caminho_chrome, site]
-        subprocess.Popen(comando)
+def openNav(site):
+    caminho_chrome = "C:/Program Files/Google/Chrome/Application/chrome.exe"  # Atualize o caminho se necessário
+    comando = [caminho_chrome, site]
+    subprocess.Popen(comando)
 
-    def openConsole():
-        global consoleCounter, VopenConsole
-        VopenConsole = "v25"
-        pg.hotkey("ctrl", "shift", "i")
-        for i in range(0,100):
-            inspecActivity = pg.locateCenterOnScreen("images/console/inspecActivity.png", confidence=0.95)
-            if inspecActivity is not None and len(inspecActivity) == 2:
-                pg.hotkey("ctrl", "p")
-                break
-            time.sleep(0.1)
-        time.sleep(1)
-        pg.hotkey('ctrl', 'a')
-        time.sleep(0.5)
-        pg.write(">console")
-        panelVerify = clickImage(False, "images/console/panel.png", 0.95, 25)
-        if panelVerify is True:
-            time.sleep(0.25)
-            pg.press("enter")
-            pyperclip.copy('allow pasting')
-            time.sleep(1)
-            pg.hotkey('ctrl', 'v')
-            time.sleep(0.25)
-            pg.press('enter')
-            time.sleep(0.2)
-            pg.write("allow pasting")
-            time.sleep(0.25)
-            pg.press("enter")
-            time.sleep(0.75)
-        else:
-            pg.hotkey("ctrl", "shift", "i")
-            if consoleCounter < 2:
-                navigator.openConsole()
-                consoleCounter += 1
-
-    def closeNav(codeStep):
-        pg.hotkey('ctrl', 'w')
-        time.sleep(1)
-        pg.press('enter')
-        time.sleep(1)
-        pg.press('esc')
-        time.sleep(0.5)
+def openConsole():
+    global consoleCounter
+    pg.hotkey("ctrl", "shift", "i")
+    for i in range(0,50):
+        inspecActivity = pg.locateCenterOnScreen("images/console/inspecActivity.png", confidence=0.95)
+        if inspecActivity is not None and len(inspecActivity) == 2:
+            pg.hotkey("ctrl", "p")
+            break
+        time.sleep(0.1)
+    time.sleep(1)
+    pg.hotkey('ctrl', 'a')
+    time.sleep(0.5)
+    pg.write(">console")
+    time.sleep(0.5)
+    panelVerify = pg.locateCenterOnScreen("images/console/panel.png", confidence=0.95)
+    if panelVerify is not None and len(panelVerify) == 2:
+        time.sleep(0.25)
         pg.press("enter")
-        if codeStep == "Final":
-            time.sleep(1)
-            pg.hotkey('alt', 'f4')
-            time.sleep(0.5)
-            pg.press('esc')
-    
-    def openNavConfig():
-        maximo = clickImage(False, "images/windows/maximo.png", 0.8, 1)
-        if maximo is False:
-            clickImage(True, "images/windows/minimo.png", 0.85, 1)
-        for i in range(0, 120):
-            studioOpen = clickImage(False, 'images/youtube/studioOpen.png', 0.9, 1)
-            if studioOpen:
-                break
-            time.sleep(0.1)
-        navigator.openConsole()
+        pyperclip.copy('allow pasting')
+        time.sleep(1)
+        pg.hotkey('ctrl', 'v')
+        time.sleep(0.25)
+        pg.press('enter')
+        time.sleep(0.2)
+        pg.write("allow pasting")
+        time.sleep(0.25)
+        pg.press("enter")
+        time.sleep(0.75)
+        pg.press('up')
+        time.sleep(0.5)
+        pg.press('enter')
+    else:
+        pg.hotkey("ctrl", "shift", "i")
+        if consoleCounter < 2:
+            openConsole()
+            consoleCounter += 1
 
 def execJs(path):
     global desc, tittle
@@ -164,11 +142,25 @@ def errorFunction(etapa):
     global errorInfo, videoNumber, firstDate, jumpDay
     errorInfo = True
     firstDate += jumpDay
-    navigator.closeNav("")
+    closeNav("")
     logs.salvar_dados_excel('Error')
     errorList.append((videoType, videoNumber, dateSelect))
     timeCalc()
-    ntfy(f"❌❌❌❌❌\nPrevisão de termino: {horario_estimado}\nNumero do Video: {videoNumber}/{end}\nCategoria: {videoType}\nEtapa do Erro: {etapa}\nVersão:{version}\nOpenConsole{VopenConsole}")
+    ntfy(f"❌❌❌❌❌\nPrevisão de termino: {horario_estimado}\nNumero do Video: {videoNumber}/{end}\nCategoria: {videoType}\nEtapa do Erro: {etapa}\nVersão:{version}")
+
+def closeNav(codeStep):
+    pg.hotkey('ctrl', 'w')
+    time.sleep(1)
+    pg.press('enter')
+    time.sleep(1)
+    pg.press('esc')
+    time.sleep(0.5)
+    pg.press("enter")
+    if codeStep == "Final":
+        time.sleep(1)
+        pg.hotkey('alt', 'f4')
+        time.sleep(0.5)
+        pg.press('esc')
 
 def aboutVideoInfos():
     global tittle, desc, titlePath
@@ -194,15 +186,15 @@ class calculateDates:
         global dateSelect, firstDate
         today = datetime.now()
         dateSelect = (today + timedelta(days=firstDate)).strftime("%d/%m/%Y")
-
-    def goalDateF(goalDateInput, startDateInput):
-        global firstDate
+    def goalDate():
+        hoje = date.today()
+        alvo = "2025-08-27"
         try:
-            futureDate = datetime.strptime(goalDateInput, "%d/%m/%Y").date()
-            calcDate = futureDate - startDateInput
-            firstDate = calcDate.days
+            ano, mes, dia = map(int, alvo.split('-'))
+            data_futura = date(ano, mes, dia)
+            calculoDate = data_futura - hoje
         except ValueError:
-            print("Formato de data inválido. Tente novamente no formato DD/MM/AAAA.")
+            print("Formato de data inválido. Tente novamente no formato AAAA-MM-DD.")
 
 class videoConfigs:
     def tittleDescThumb():
@@ -253,7 +245,7 @@ class steps:
         print("iniciou step2")
         detalhes = clickImage(False, "images/youtube/detalhes.png", 0.9, 100)
         if detalhes is True:
-            navigator.openConsole()
+            openConsole()
             time.sleep(1)
             videoConfigs.tittleDescThumb()
             time.sleep(2)
@@ -278,7 +270,7 @@ class steps:
         time.sleep(5)
         pg.hotkey("ctrl", 'shift', "i")
         time.sleep(1)
-        navigator.openConsole()
+        openConsole()
         time.sleep(1)
         execJs('js/youtube/next.js')
         time.sleep(1)
@@ -411,23 +403,28 @@ class logs:
 
         logs.colorir_celulas(excelArchive)
 
+def openNavConfig():
+    maximo = clickImage(False, "images/windows/maximo.png", 0.8, 1)
+    if maximo is False:
+        clickImage(True, "images/windows/minimo.png", 0.85, 1)
+    for i in range(0, 120):
+        studioOpen = clickImage(False, 'images/youtube/studioOpen.png', 0.9, 1)
+        if studioOpen:
+            break
+        time.sleep(0.1)
+    openConsole()
+
 def dadosIniciais():
-    global start, end, jumpDay, errorList, postar, foundSelectorVideo, foundSelectorThumb, userSelect, attemptsWhile, contentLanguague, ytStudioLink, goalDate
+    global start, end, jumpDay, firstDate, errorList, postar, foundSelectorVideo, foundSelectorThumb, userSelect, attemptsWhile, contentLanguague
     foundSelectorVideo = f"{base_path / 'videos'}"
     foundSelectorThumb = f"{base_path / 'thumbs'}"
     start = 8
     end = 10
     jumpDay = 10
-    goalDate = "27/08/2025"
+    firstDate = 0
+    userSelect = "berlotti" # berlotti / fabio
     contentLanguague = "NULL" # pt-br / en-us / es-es # Usar para escolher qual tipo de conteudo vai ser postado e em qual linguagem vai ser postado
     attemptsWhile = 0
-    calculateDates.goalDateF(goalDate, fullStartDate)
-    userSelectF()
-
-def userSelectF():
-    global userSelect, ytStudioLink
-    userSelect = "berlotti" # berlotti / fabio
-    ytStudioLink = "https://studio.youtube.com/channel/UCPDa_GVRpoAwRVCSnAZ8V_A/videos/"
 
    #""" TODO criar verificacao para quando atingir o limite de envio diario
     #js path do erro do yt de maximo de envios : document.querySelector("#dialog > div > ytcp-animatable.button-area.metadata-fade-in-section.style-scope.ytcp-uploads-dialog > div > div.left-button-area.style-scope.ytcp-uploads-dialog > ytcp-ve > div.error-short.style-scope.ytcp-uploads-dialog").textContent
@@ -436,8 +433,7 @@ def userSelectF():
     #o ultimo codigo do gemini funciona se colar e logo em seguida dar ctrl shift i, a pagina precisa estar clicada para copiar o texto"""
     
 errorList = []
-postar = ["mine", "af"]
-#postar = ["mine", "af", "monop", "wbus", "extreme", "tr2", "car2"]
+postar = ["mine", "af", "monop", "wbus", "extreme", "tr2", "car2"]
 
 for videoType in postar:
     dadosIniciais()
@@ -448,17 +444,17 @@ for videoType in postar:
 
     actualDate = (date.today()).day 
     if actualDate > startDate:
-        goalDate -= 1
+        firstDate -= 1
 
     if videoType == "wbus" or videoType == "extreme":
-        goalDate = 1
+        firstDate = 1
     elif videoType == "tr2" or videoType == "car2":
-        goalDate = 2
+        firstDate = 2
     else:
-        calculateDates.goalDateF("27/08/2025", fullStartDate)
+        firstDate = 1
         start = 10
         
-    ntfy(f"INICIANDO ENVIO DE {videoType} {int(postar.index(videoType))+1}/{len(postar)}\nVersão:{version}\nOpenConsole{VopenConsole}")
+    ntfy(f"INICIANDO ENVIO DE {videoType} {int(postar.index(videoType))+1}/{len(postar)}\nVersão:{version}")
 
     for videoNumber in range(start, end+1):
         time_start = time.time()
@@ -467,9 +463,9 @@ for videoType in postar:
         aboutVideoInfos()
         calculateDates.dateCalculate()
         errorInfo = False
-        navigator.openNav(ytStudioLink)
+        openNav("https://studio.youtube.com/channel/UCPDa_GVRpoAwRVCSnAZ8V_A/videos/")
         time.sleep(5)
-        navigator.openNavConfig()
+        openNavConfig()
         steps.step1Upload()
         if errorInfo == True:
             continue
@@ -478,10 +474,10 @@ for videoType in postar:
             continue
         
         logs.salvar_dados_excel('Posted')
-        navigator.closeNav("")
+        closeNav("")
         firstDate += jumpDay
         timeCalc()
-        ntfy(f"✅✅✅✅✅\nPrevisão de termino: {horario_estimado}\nVideos: {videoNumber}/{end}\nCategoria: {videoType}\nVersão:{version}\nOpenConsole{VopenConsole}")
+        ntfy(f"✅✅✅✅✅\nPrevisão de termino: {horario_estimado}\nVideos: {videoNumber}/{end}\nCategoria: {videoType}\nVersão:{version}")
 
 while len(errorList) > 0 or attemptsWhile < 3:
     attemptsWhile += 1
@@ -494,11 +490,11 @@ while len(errorList) > 0 or attemptsWhile < 3:
         dateSelect = dateSelect
 
         time_start = time.time()
-        ntfy(f"INICIANDO SESSAO DE ERROS\nCategoria: {videoType}\nNumero do Video: {videoNumber}\nData da Postagem: {dateSelect}\nVersão:{version}\nOpenConsole{VopenConsole}")
+        ntfy(f"INICIANDO SESSAO DE ERROS\nCategoria: {videoType}\nNumero do Video: {videoNumber}\nData da Postagem: {dateSelect}\nVersão:{version}")
         aboutVideoInfos()
-        navigator.openNav(ytStudioLink)
+        openNav("https://studio.youtube.com/channel/UCPDa_GVRpoAwRVCSnAZ8V_A/videos/")
         time.sleep(5)
-        navigator.openNavConfig()
+        openNavConfig()
         steps.step1Upload()
         if errorInfo == True:
             continue
@@ -509,9 +505,9 @@ while len(errorList) > 0 or attemptsWhile < 3:
         closeNav("")
         errorList.remove((videoType, videoNumber, dateSelect))
         timeCalc()
-        ntfy(f"✅✅✅✅✅\nPrevisão de termino: {horario_estimado}\nNumero do Video: {videoNumber}/{end}\nCategoria: {videoType}\nVersão:{version}\nOpenConsole{VopenConsole}")
+        ntfy(f"✅✅✅✅✅\nPrevisão de termino: {horario_estimado}\nNumero do Video: {videoNumber}/{end}\nCategoria: {videoType}\nVersão:{version}")
 
-navigator.closeNav("Final")
+closeNav("Final")
 ntfy("TODOS OS ENVIOS FORAM FINALIZADOS")
 
 """ideia para a versao 2.0, fazer um menu e um campo para inserir um novo tipo de conteudo, nesse campo ser possivel colocar
