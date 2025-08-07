@@ -458,7 +458,7 @@ for videoType in postar:
         calculateDates.goalDateF("27/08/2025", fullStartDate)
         start = 10
         
-    ntfy(f"INICIANDO ENVIO DE {videoType} {int(postar.index(videoType))+1}/{len(postar)}\nVersão:{version}\nOpenConsole{VopenConsole}")
+    ntfy(f"INICIANDO ENVIO DE {videoType} {int(postar.index(videoType))+1}/{len(postar)}\nVersão:{version}")
 
     for videoNumber in range(start, end+1):
         time_start = time.time()
@@ -505,8 +505,7 @@ while len(errorList) > 0 or attemptsWhile < 3:
         steps.step2Edit()
         if errorInfo == True:
             continue
-        
-        closeNav("")
+        navigator.closeNav("")
         errorList.remove((videoType, videoNumber, dateSelect))
         timeCalc()
         ntfy(f"✅✅✅✅✅\nPrevisão de termino: {horario_estimado}\nNumero do Video: {videoNumber}/{end}\nCategoria: {videoType}\nVersão:{version}\nOpenConsole{VopenConsole}")
