@@ -1,6 +1,15 @@
-from datetime import date, datetime
 
-startDate = (date.today()).day 
-futureDate = datetime.strptime("27/07/2025", "%d/%m/%Y").date()
 
-print(futureDate.day)
+def userCollect():
+    janela = tk.Tk()
+    janela.withdraw()
+    username = simpledialog.askstring("ytUpload", "Por favor, insira seu nome de login:")
+
+    if username:
+        print(f"Nome de login inserido: {username}")
+        return username
+    else:
+        print("Nenhum nome de login inserido.")
+        return None
+    
+login = userCollect()

@@ -11,8 +11,6 @@ from openpyxl.styles import PatternFill
 from conteudos import conteudos
 import json
 from pathlib import Path
-import tkinter as tk
-from tkinter import simpledialog
 
 base_path = Path(__file__).parent
 consoleCounter = 0
@@ -22,10 +20,13 @@ videoUploaded = False
 errorInfo = False
 startDate = (date.today()).day 
 fullStartDate = date.today()
-version = "1.7"
+version = "1.6"
 
-"Funcionalidades adicionadas na versão 1.7"
-# Nova classe para selecao de usuario e funcoes criadas, agora o código consegue identificar quem é o usuario e não dar erro de imagens --adicionar
+"Funcionalidades adicionadas na versão 1.6"
+# Com a criação da função 'goalDateF' agora é possivel inserir a data inicial pela própria data e não a quantos dias vai ser --adicionado
+# Iniciando criação de identificação de usuarios, variavel ytStudioLink substitui a necessidade de inserir o link sempre que chamar o openNav() --adicionado
+# Iniciando criação de identificação de usuarios, criação de variavel userSelect para identificar qual user esta utilizando o sistema --adicionado
+# Nova classe 'navigator', criada para organização de funcoes de comandos do navegador --adicionado
 
 "Funcionalidades para adicionar"
 # Correção na função do excel --escrever nome da funcao aqui-- ela anotava apenas o numero do video e se deu erro ou nao, agora ela anota a categoria e quais videos foram enviados ou não -- adicionar
@@ -66,7 +67,7 @@ class navigator:
         VopenConsole = "v25"
         pg.hotkey("ctrl", "shift", "i")
         for i in range(0,100):
-            inspecActivity = pg.locateCenterOnScreen(f"users/{userSelect}/images/console/inspecActivity.png", confidence=0.95)
+            inspecActivity = pg.locateCenterOnScreen("images/console/inspecActivity.png", confidence=0.95)
             if inspecActivity is not None and len(inspecActivity) == 2:
                 pg.hotkey("ctrl", "p")
                 break
@@ -75,7 +76,7 @@ class navigator:
         pg.hotkey('ctrl', 'a')
         time.sleep(0.5)
         pg.write(">console")
-        panelVerify = clickImage(False, f"users/{userSelect}/images/console/panel.png", 0.95, 25)
+        panelVerify = clickImage(False, "images/console/panel.png", 0.95, 25)
         if panelVerify is True:
             time.sleep(0.25)
             pg.press("enter")
@@ -110,11 +111,11 @@ class navigator:
             pg.press('esc')
     
     def openNavConfig():
-        maximo = clickImage(False, f"users/{userSelect}/images/windows/maximo.png", 0.8, 1)
+        maximo = clickImage(False, "images/windows/maximo.png", 0.8, 1)
         if maximo is False:
-            clickImage(True, f"users/{userSelect}/images/windows/minimo.png", 0.85, 1)
+            clickImage(True, "images/windows/minimo.png", 0.85, 1)
         for i in range(0, 120):
-            studioOpen = clickImage(False, f'users/{userSelect}/images/youtube/studioOpen.png', 0.9, 1)
+            studioOpen = clickImage(False, 'images/youtube/studioOpen.png', 0.9, 1)
             if studioOpen:
                 break
             time.sleep(0.1)
@@ -217,16 +218,16 @@ class steps:
         time.sleep(2)
         
         def foundSelectorF():
-            uploadClick = clickImage(True, f'users/{userSelect}/images/youtube/upload.png', 0.9, 50)
+            uploadClick = clickImage(True, 'images/youtube/upload.png', 0.9, 50)
             if uploadClick is False:
                 errorFunction("uploadClick 193")
                 return
             time.sleep(1)
-            linkFolderClick = clickImage(True, f'users/{userSelect}/images/windows/linkFolder.png', 0.9, 20)
+            linkFolderClick = clickImage(True, 'images/windows/linkFolder.png', 0.9, 20)
             if linkFolderClick is False:
-                clickImage(True, f'users/{userSelect}/images/youtube/upload.png', 0.9, 50)
+                clickImage(True, 'images/youtube/upload.png', 0.9, 50)
                 time.sleep(2.5)
-                linkFolderClick = clickImage(True, f'users/{userSelect}/images/windows/linkFolder.png', 0.9, 20)
+                linkFolderClick = clickImage(True, 'images/windows/linkFolder.png', 0.9, 20)
             if linkFolderClick is True:
                 pg.write(foundSelectorVideo)
                 time.sleep(1)
@@ -236,7 +237,7 @@ class steps:
                 time.sleep(1)
                 pg.write(f'"{videoType}{videoNumber}.mp4"', 0.15)
                 time.sleep(0.75)
-                selectVideo = clickImage(True, f'users/{userSelect}/images/windows/mp4.png', 0.9, 80)
+                selectVideo = clickImage(True, 'images/windows/mp4.png', 0.9, 80)
                 if selectVideo is True:
                     time.sleep(0.5)
                     pg.press('enter')
@@ -250,13 +251,13 @@ class steps:
     def step2Edit():
         global videoUploaded, videoType, foundSelectorThumb
         print("iniciou step2")
-        detalhes = clickImage(False, f"users/{userSelect}/images/youtube/detalhes.png", 0.9, 100)
+        detalhes = clickImage(False, "images/youtube/detalhes.png", 0.9, 100)
         if detalhes is True:
             navigator.openConsole()
             time.sleep(1)
             videoConfigs.tittleDescThumb()
             time.sleep(2)
-            linkFolderClick = clickImage(True, f'users/{userSelect}/images/windows/linkFolder.png', 0.9, 20)
+            linkFolderClick = clickImage(True, 'images/windows/linkFolder.png', 0.9, 20)
             if linkFolderClick is True:
                 pg.write(foundSelectorThumb)
                 time.sleep(1)
@@ -265,7 +266,7 @@ class steps:
                 pg.hotkey('ctrl', 'f')
                 time.sleep(1)
                 pg.write(f'"{videoType}.png"')
-                selectThumb = clickImage(True, f'users/{userSelect}/images/windows/thumbnail.png', 0.9, 80)
+                selectThumb = clickImage(True, 'images/windows/thumbnail.png', 0.9, 80)
                 if selectThumb is True:
                     time.sleep(0.5)
                     pg.press('enter')
@@ -282,13 +283,13 @@ class steps:
         execJs('js/youtube/next.js')
         time.sleep(1)
 
-        copyright = clickImage(False, f'users/{userSelect}/images/youtube/copyright.png', 0.85, 1)
-        copyright2 = clickImage(False, f'users/{userSelect}/images/youtube/copyright2.png', 0.85, 1)
+        copyright = clickImage(False, 'images/youtube/copyright.png', 0.85, 1)
+        copyright2 = clickImage(False, 'images/youtube/copyright2.png', 0.85, 1)
 
         for i in range(0, 300):
             if copyright is False and copyright2 is False:
-                copyright = clickImage(False, f'users/{userSelect}/images/youtube/copyright.png', 0.85, 1)
-                copyright2 = clickImage(False, f'users/{userSelect}/images/youtube/copyright2.png', 0.85, 1)
+                copyright = clickImage(False, 'images/youtube/copyright.png', 0.85, 1)
+                copyright2 = clickImage(False, 'images/youtube/copyright2.png', 0.85, 1)
             else:
                 break
             time.sleep(0.1)
@@ -297,11 +298,11 @@ class steps:
             time.sleep(1)
             execJs('js/youtube/next2.js')
             time.sleep(1)
-            verifyPage = clickImage(False, f'users/{userSelect}/images/youtube/verifyPage.png', 0.9, 120)
+            verifyPage = clickImage(False, 'images/youtube/verifyPage.png', 0.9, 120)
             if verifyPage is True:
                 execJs('js/youtube/date.js')
                 time.sleep(5)
-                dateChange = clickImage(True, f'users/{userSelect}/images/youtube/2025.png', 0.9, 40)
+                dateChange = clickImage(True, 'images/youtube/2025.png', 0.9, 40)
                 if dateChange is True:
                     time.sleep(1.5)
                     pg.hotkey('ctrl', 'a')
@@ -310,7 +311,7 @@ class steps:
                     time.sleep(1)
                     pg.press('enter')
                     time.sleep(1)
-                    hourSelect = clickImage(True, f'users/{userSelect}/images/youtube/hourSelect.png', 0.9, 50)
+                    hourSelect = clickImage(True, 'images/youtube/hourSelect.png', 0.9, 50)
                     time.sleep(0.75)
                     if hourSelect is True:
                         pg.hotkey('ctrl', 'a')
@@ -322,9 +323,9 @@ class steps:
                     else:
                         errorFunction("hourSelect 296")
                         return
-                    clickImage(True, f'users/{userSelect}/images/youtube/programar.png', 0.9, 40)
+                    clickImage(True, 'images/youtube/programar.png', 0.9, 40)
                     time.sleep(1)
-            videoPosted = clickImage(False, f'users/{userSelect}/images/youtube/videoPosted.png', 0.88, 150)
+            videoPosted = clickImage(False, 'images/youtube/videoPosted.png', 0.88, 150)
             if videoPosted is True:
                 videoUploaded = True
             else:
@@ -410,26 +411,6 @@ class logs:
 
         logs.colorir_celulas(excelArchive)
 
-class users:
-    def userSelectF():
-        global userSelect, ytStudioLink
-        userSelect = users.userCollect() # berlotti / fabio
-        if userSelect == "berlotti":
-            ytStudioLink = "https://studio.youtube.com/channel/UCPDa_GVRpoAwRVCSnAZ8V_A/videos/" # TODO mudar para txt inteligente depois
-        elif userSelect == "fabio":
-            ytStudioLink = "https://studio.youtube.com/channel/UC3DZUNHs1SsdA8YE2PbcSZg"
-
-    def userCollect():
-        janela = tk.Tk()
-        janela.withdraw()
-        username = simpledialog.askstring("ytUpload", "Por favor, insira seu nome de login:")
-        if username:
-            print(f"Nome de login inserido: {username}")
-            return username
-        else:
-            print("Nenhum nome de login inserido.")
-            exit()
-
 def dadosIniciais():
     global start, end, jumpDay, errorList, postar, foundSelectorVideo, foundSelectorThumb, userSelect, attemptsWhile, contentLanguague, ytStudioLink, goalDate
     foundSelectorVideo = f"{base_path / 'videos'}"
@@ -440,10 +421,13 @@ def dadosIniciais():
     goalDate = "27/08/2025"
     contentLanguague = "NULL" # pt-br / en-us / es-es # Usar para escolher qual tipo de conteudo vai ser postado e em qual linguagem vai ser postado
     attemptsWhile = 0
-    users.userSelectF()
     calculateDates.goalDateF(goalDate, fullStartDate)
+    userSelectF()
 
-
+def userSelectF():
+    global userSelect, ytStudioLink
+    userSelect = "berlotti" # berlotti / fabio
+    ytStudioLink = "https://studio.youtube.com/channel/UCPDa_GVRpoAwRVCSnAZ8V_A/videos/"
 
    #""" TODO criar verificacao para quando atingir o limite de envio diario
     #js path do erro do yt de maximo de envios : document.querySelector("#dialog > div > ytcp-animatable.button-area.metadata-fade-in-section.style-scope.ytcp-uploads-dialog > div > div.left-button-area.style-scope.ytcp-uploads-dialog > ytcp-ve > div.error-short.style-scope.ytcp-uploads-dialog").textContent
@@ -452,13 +436,13 @@ def dadosIniciais():
     #o ultimo codigo do gemini funciona se colar e logo em seguida dar ctrl shift i, a pagina precisa estar clicada para copiar o texto"""
     
 errorList = []
-postar = ["dls"]
+postar = [""]
 
 for videoType in postar:
     dadosIniciais()
     info = conteudos[videoType]
     titlePath = info["titulo_arquivo"]
-    descPath = f"users/{userSelect}/{info['desc_arquivo']}"
+    descPath = info["desc_arquivo"]
     hour = info["horario"]
 
     actualDate = (date.today()).day 
