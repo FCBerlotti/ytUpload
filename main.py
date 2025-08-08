@@ -413,7 +413,6 @@ class logs:
 class users:
     def userSelectF():
         global userSelect, ytStudioLink
-        userSelect = users.userCollect() # berlotti / fabio
         if userSelect == "berlotti":
             ytStudioLink = "https://studio.youtube.com/channel/UCPDa_GVRpoAwRVCSnAZ8V_A/videos/" # TODO mudar para txt inteligente depois
         elif userSelect == "fabio":
@@ -430,14 +429,16 @@ class users:
             print("Nenhum nome de login inserido.")
             exit()
 
+userSelect = users.userCollect() # berlotti / fabio
+
 def dadosIniciais():
     global start, end, jumpDay, errorList, postar, foundSelectorVideo, foundSelectorThumb, userSelect, attemptsWhile, contentLanguague, ytStudioLink, goalDate
     foundSelectorVideo = f"{base_path / 'videos'}"
     foundSelectorThumb = f"{base_path / 'thumbs'}"
-    start = 8
+    start = 9
     end = 10
     jumpDay = 10
-    goalDate = "27/08/2025"
+    goalDate = "13/08/2025"
     contentLanguague = "NULL" # pt-br / en-us / es-es # Usar para escolher qual tipo de conteudo vai ser postado e em qual linguagem vai ser postado
     attemptsWhile = 0
     users.userSelectF()
@@ -452,7 +453,7 @@ def dadosIniciais():
     #o ultimo codigo do gemini funciona se colar e logo em seguida dar ctrl shift i, a pagina precisa estar clicada para copiar o texto"""
     
 errorList = []
-postar = ["dls"]
+postar = ["avw", "decisoes", "sharkev", "universal", "drivers", "mss", "ssr", "rds", "sf2"]
 
 for videoType in postar:
     dadosIniciais()
