@@ -1,15 +1,22 @@
 
+import pyautogui as pg
+import time
+import pyperclip
+import requests
+import subprocess
+from datetime import datetime, timedelta, date
+import openpyxl
+from openpyxl import Workbook
+from openpyxl.utils import get_column_letter
+from openpyxl.styles import PatternFill
+from conteudos import conteudos
+import json
+from pathlib import Path
+import tkinter as tk
+from tkinter import simpledialog
 
-def userCollect():
-    janela = tk.Tk()
-    janela.withdraw()
-    username = simpledialog.askstring("ytUpload", "Por favor, insira seu nome de login:")
 
-    if username:
-        print(f"Nome de login inserido: {username}")
-        return username
-    else:
-        print("Nenhum nome de login inserido.")
-        return None
-    
-login = userCollect()
+startDate = (date.today()).day
+print(startDate)
+startDate = startDate + 1
+print(startDate)

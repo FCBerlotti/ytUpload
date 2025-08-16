@@ -20,7 +20,7 @@ contador = 0
 time_soma = 0
 videoUploaded = False
 errorInfo = False
-startDate = (date.today()).day 
+startDate = (date.today()).day
 fullStartDate = date.today()
 version = "1.7"
 
@@ -36,7 +36,10 @@ version = "1.7"
 
 def ntfy(message):
     try:
-        requests.post(('https://ntfy.sh/ytUploadNotifier'), data=(message).encode(encoding='utf-8'))
+        if userSelect == "berlotti":
+            requests.post(('https://ntfy.sh/ytUploadNotifier'), data=(message).encode(encoding='utf-8'))
+        elif userSelect == "fabio":
+            requests.post(('https://ntfy.sh/ytUploadNotifierfabio'), data=(message).encode(encoding='utf-8'))
     except requests.exceptions.HTTPError as errh:
         print("Http Error:", errh)
     except requests.exceptions.ConnectionError as errc:
@@ -165,7 +168,8 @@ def errorFunction(etapa):
     firstDate += jumpDay
     navigator.closeNav("")
     logs.salvar_dados_excel('Error')
-    errorList.append((videoType, videoNumber, dateSelect))
+    if etapa != "videoPosted" and userSelect == "fabio":
+        errorList.append((videoType, videoNumber, dateSelect))
     timeCalc()
     ntfy(f"❌❌❌❌❌\nPrevisão de termino: {horario_estimado}\nNumero do Video: {videoNumber}/{end}\nCategoria: {videoType}\nEtapa do Erro: {etapa}\nVersão:{version}\nOpenConsole: {VopenConsole}")
 
@@ -265,7 +269,7 @@ class steps:
                 pg.hotkey('ctrl', 'f')
                 time.sleep(1)
                 pg.write(f'"{videoType}.png"')
-                selectThumb = clickImage(True, f'users/{userSelect}/images/windows/thumbnail.png', 0.9, 80)
+                selectThumb = clickImage(True, f'users/{userSelect}/images/windows/thumbnail.png', 0.95, 80)
                 if selectThumb is True:
                     time.sleep(0.5)
                     pg.press('enter')
@@ -324,7 +328,7 @@ class steps:
                         return
                     clickImage(True, f'users/{userSelect}/images/youtube/programar.png', 0.9, 40)
                     time.sleep(1)
-            videoPosted = clickImage(False, f'users/{userSelect}/images/youtube/videoPosted.png', 0.88, 150)
+            videoPosted = clickImage(False, f'users/{userSelect}/images/youtube/videoPosted.png', 0.88, 150) #TODO ALTERRAR REPETICOES DE TENTATIVAS DE ACORDO COM O USUARIO FABIO = 250
             if videoPosted is True:
                 videoUploaded = True
             else:
@@ -435,15 +439,15 @@ def dadosIniciais():
     global start, end, jumpDay, errorList, postar, foundSelectorVideo, foundSelectorThumb, userSelect, attemptsWhile, contentLanguague, ytStudioLink, goalDate
     foundSelectorVideo = f"{base_path / 'videos'}"
     foundSelectorThumb = f"{base_path / 'thumbs'}"
-    start = 9
-    end = 10
+    start = 12
+    end = 23
     jumpDay = 10
-    goalDate = "13/08/2025"
+    goalDate = "10/09/2025"
     contentLanguague = "NULL" # pt-br / en-us / es-es # Usar para escolher qual tipo de conteudo vai ser postado e em qual linguagem vai ser postado
     attemptsWhile = 0
     users.userSelectF()
     calculateDates.goalDateF(goalDate, fullStartDate)
-
+ 
 
 
    #""" TODO criar verificacao para quando atingir o limite de envio diario
@@ -453,7 +457,7 @@ def dadosIniciais():
     #o ultimo codigo do gemini funciona se colar e logo em seguida dar ctrl shift i, a pagina precisa estar clicada para copiar o texto"""
     
 errorList = []
-postar = ["avw", "decisoes", "sharkev", "universal", "drivers", "mss", "ssr", "rds", "sf2"]
+postar = ["rr3", "fcmob", "eab", "csr2", "dsse", "geomatry", "moon"]
 
 for videoType in postar:
     dadosIniciais()
@@ -461,10 +465,10 @@ for videoType in postar:
     titlePath = info["titulo_arquivo"]
     descPath = f"users/{userSelect}/{info['desc_arquivo']}"
     hour = info["horario"]
-
+    
     actualDate = (date.today()).day 
     if actualDate > startDate:
-        goalDate -= 1
+        firstDate -= 1
 
     if videoType == "teste":
         print("teste")
@@ -497,7 +501,7 @@ for videoType in postar:
         timeCalc()
         ntfy(f"✅✅✅✅✅\nPrevisão de termino: {horario_estimado}\nVideos: {videoNumber}/{end}\nCategoria: {videoType}\nVersão:{version}\nOpenConsole: {VopenConsole}")
 
-while len(errorList) > 0 or attemptsWhile < 3:
+while len(errorList) > 0 or attemptsWhile < 5:
     attemptsWhile += 1
     for videoType, videoNumber, dateSelect in errorList:
         errorInfo = False
