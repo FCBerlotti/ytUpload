@@ -5,11 +5,11 @@ INFANTIL MOBILE (1-10)
 2 - roblox = ROBLOX
 3 - bloxf = BLOX FRUITS
 4 - poclove = POCKET LOVE
-5 - [VAZIO]
-6 - [VAZIO]
-7 - [VAZIO]
+5 - gpizza = GOOD PIZZA - GREAT PIZZA // https://www.youtube.com/watch?v=xplQ4LaXTnI
+6 - cafeland = CAFELAND - WORLD KITCHEN // https://www.youtube.com/watch?v=kwLMoNRPs3E&pp=0gcJCa0JAYcqIYzv
+7 - cookf = COOKING FEVER // https://www.youtube.com/watch?v=JOsTaP4vBOc
 8 - mycafe = MY CAFE
-9 - [VAZIO]
+9 - fisland = FAMILY ISLAND // https://www.youtube.com/watch?v=7KlMyAXn56Y
 10 - [VAZIO]
 
 INFANTIL (WORLDS) (11-20)
@@ -21,8 +21,8 @@ INFANTIL (WORLDS) (11-20)
 16 - miga = MIGA WORLD
 17 - adorable = ADORABLE HOME
 18 - linda = LINDA BROWN: SERIE INTERATIVA
-19 - [VAZIO]
-20 - [VAZIO]
+19 - mlight = MOONLIGHT CRUSH // https://www.youtube.com/watch?v=RhYF17gMqw8
+20 - mechat = MECHAT - LOVE SECRETS // https://www.youtube.com/watch?v=rUhhLkZfJgU
 
 INFANTIL (HISTÓRIAS) (21-30)
 21 - chapters = CHAPTERS INTERACTIVE STORIES / CHAPTERS ROMANCE
@@ -34,7 +34,7 @@ INFANTIL (HISTÓRIAS) (21-30)
 27 - sick = LOVE SICK
 28 - romance = ROMANCE FATE
 29 - maybe = MAYBE INTERACTIVE
-30 - [VAZIO]
+30 - holly = HOLLYWOOD STORY // https://www.youtube.com/watch?v=4ai5SKy34f8
 
 JOVENS (14+ ANOS) (31-40)
 31 - subway = SUBWAY SURFERS
@@ -58,7 +58,7 @@ CAMINHÕES (41-50)
 47 - gts = GRAND TRUCK SIMULATOR 2
 48 - af = AMERICAN FARMING
 49 - wbus = WORLD BUS DRIVING SIMULATOR
-50 - [VAZIO]
+50 - drts = DRIVE REAL TRUCK SIMULATOR
 
 CARROS (51-60)
 51 - cxdr = CARX DRIFTING RACING 2
@@ -82,14 +82,14 @@ FUTEBOL (61-70)
 67 - footl = FOOTBALL LEAGUE
 68 - hero = SCORE HERO
 69 - vlhero = VL HERO
-70 - [VAZIO]
+70 - sm = SOCCER MANAGER  // https://www.youtube.com/watch?v=HJSf_PGc0ms
 
 MOTOS (71-80)
 71 - motow = MOTO WHEELIE 3D
 72 - eab = ELITE AUTO BRASIL
 73 - traffic = TRAFFIC RIDER
-74 - [VAZIO]
-75 - [VAZIO]
+74 - em2 = ELITE MOTOS 2
+75 - cddgrau = CIDADE DO GRAU // https://www.youtube.com/watch?v=rSkii234H0I
 76 - [VAZIO]
 77 - [VAZIO]
 78 - [VAZIO]
@@ -114,7 +114,7 @@ CARROS + CORRIDA -3 (91-100)
 93 - pixel = PIXEL CAR RACER
 94 - rds = REAL DRIVING SCHOOL
 95 - car3 = CAR SIMULATOR 3
-96 - 
+96 - nrdl2 = NO LIMIT DRAG RACING 2 // https://www.youtube.com/watch?v=d7U5TVHg_cs
 97 - 
 98 - monop = MONOPOSTO
 99 - offroad = OFFROAD OUTLAWS
@@ -130,7 +130,7 @@ JOVENS (14+ ANOS) (101-110)
 107 - hungry = HUNGRY DRAGON
 108 - stardmob = STARDEW VALLEY (MOBILE)
 109 - tsunami = ZOMBIE TSUNAMI
-110 - [VAZIO]
+110 - magic = MAGIC RAMPAGE // https://www.youtube.com/watch?v=zZ8QekSpSfs
 
 JOGOS PC (111-120)
 111 - terrariapc = TERRARIA (PC)
@@ -153,13 +153,13 @@ JOVENS (16+ ANOS) (121-130)
 126 - swl = STICK WAR: LEGACY
 127 - boxmob = WORLD BOX (MOBILE)
 128 - gangrio = GANGSTAR RIO
-129 - [VAZIO]
-130 - [VAZIO]
+129 - dusk = DUSKWOOD - CRIME E DETETIVE // https://www.youtube.com/watch?v=kbaC48nScWQ
+130 - spike = THE SPIKE VOLLEYBALL STORY // https://www.youtube.com/watch?v=-sO2xpXIigI
 
 SÉRIE DE JOGOS (COD) (131-140)
 131 - cod = CALL OF DUTY: MOBILE
 132 - warzone = CALL OF DUTY: WARZONE
-133 - [VAZIO]
+133 - zblackops = CALL OF DUTY: BLACKOPS ZOMBIES // https://www.youtube.com/watch?v=BfTFTxN41S4
 134 - [VAZIO]
 135 - [VAZIO]
 136 - [VAZIO]
@@ -176,21 +176,21 @@ OUTROS/GERAL (141-150)
 145 - rfs = REAL FLIGHT SIMULATOR
 146 - flight = FLIGHT PILOT
 147 - zombie = ZOMBIE HUNTER 2
-148 - [VAZIO]
-149 - [VAZIO]
-150 - [VAZIO]
+148 - housed = HOUSE DESIGNER // https://www.youtube.com/watch?v=TgNKHac3vNU
+149 - vcity = GTA VICE CITY MOBILE // https://www.youtube.com/watch?v=kRRsRwaCPVM
+150 - hollow = HOLLOW KNIGHT // https://www.youtube.com/watch?v=kf4gfey1O4M
 
 NINTENDO (151-160)
 151 - pokego = POKEMON GO
-152 - [VAZIO]
-153 - [VAZIO]
-154 - [VAZIO]
-155 - [VAZIO]
-156 - [VAZIO]
-157 - [VAZIO]
-158 - [VAZIO]
-159 - [VAZIO]
-160 - [VAZIO]
+152 - under = UNDERTALE // https://www.youtube.com/watch?v=bfzaXYTO0UQ
+153 - blas = BLASPHEMOUS // https://www.youtube.com/watch?v=TkyNFUzTcD0
+154 - ballzb = DRAGON BALL Z BUDOKAI // https://www.youtube.com/watch?v=LYTtyYSdJq0
+155 - cuphead = CUPHEAD MOBILE // https://www.youtube.com/watch?v=d8pmcL_vs_U&pp=0gcJCa0JAYcqIYzv
+156 - dcells = DEAD CELLS // https://www.youtube.com/watch?v=93-JwgHcVOo
+157 - rsevil4 = RESIDENT EVIL 4 RESMATERIZADO (PC) // https://www.youtube.com/watch?v=TGPnCvOu6Zc&pp=0gcJCa0JAYcqIYzv
+158 - dont = DONT STARVE TOGETHER // https://www.youtube.com/watch?v=YJE9yaqbuQA
+159 - lnight = LITTLE NIGHTMARES // https://www.youtube.com/watch?v=6sW4_bbNyQI
+160 - narutou = NARUTO ULTIMATE NINJA STORM // https://www.youtube.com/watch?v=MB_cV2nfEhM
 
 SÉRIE DE JOGOS (POPPY) (161-170)
 161 - poppy = POPPY PLAYTIME CHAPTER
@@ -205,11 +205,10 @@ SÉRIE DE JOGOS (POPPY) (161-170)
 170 - [VAZIO]
 
 CATEGORIA VAZIA (171-180)
-171 - [VAZIO]
-172 - [VAZIO]
-173 - [VAZIO]
-174 - [VAZIO]
-175 - [VAZIO]
+171 - buss = BUS SIMULATOR ULTIMATE // https://www.youtube.com/watch?v=f_3EqSSa6gk
+172 - tsbg = TRUCK SIMULATOR BIG RIGS // https://www.youtube.com/watch?v=jUGTNRvT5lo
+173 - offroad = OFF THE ROAD // https://www.youtube.com/watch?v=M0k_oz3J4eU&pp=0gcJCa0JAYcqIYzv
+174 - drts = DRIVE REAL TRUCK SIMULATOR // https://www.youtube.com/watch?v=SXYMYRfSTbI
 176 - [VAZIO]
 177 - [VAZIO]
 178 - [VAZIO]
@@ -217,9 +216,9 @@ CATEGORIA VAZIA (171-180)
 180 - [VAZIO]
 
 CATEGORIA VAZIA (181-190)
-181 - [VAZIO]
-182 - [VAZIO]
-183 - [VAZIO]
+181 - sss = SOCCER SUPER STAR // https://www.youtube.com/watch?v=PS2V-Q4plFc
+182 - dfl = DFL 25 // https://www.youtube.com/watch?v=tKlSeUOdKoo&pp=0gcJCa0JAYcqIYzv
+183 - fts = FTS 25 // https://www.youtube.com/watch?v=VBP1ezwpwmw
 184 - [VAZIO]
 185 - [VAZIO]
 186 - [VAZIO]

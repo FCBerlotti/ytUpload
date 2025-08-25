@@ -32,7 +32,12 @@ version = "1.7"
 # Organização - Funções agora são separadas por classes -- adicionar
 # Melhoramento em "def timeCalc()" agora a função é capaz de calcular o tempo para envio de todas as categorias e não só da categoria atual -- adicionar
 # Melhorar a semantica das variaveis e funções = nome das variaveis -- adicionar
-# Criação das pastas gringas para envios gringos
+# Criação das pastas gringas para envios gringos -- adicionar
+# Criar funcao para chamar o ntfy no codigo, com todas as notificacoes possiveis -- adicionar
+# Padronizar com o RDP, só rodar naquela resolucao -- adicionar
+# Montar passo a passo para configurar um novo pc, com o RDP e sem o RDP -- adicionar
+# Adicionar verificação para quando iniciar o bot, ele verificar todos os nomes dos antes de comecar a rodar --adicionar 
+# Adicionar um campo de contagem de 24h no dashboard --adicionar
 
 def ntfy(message):
     try:
@@ -168,7 +173,9 @@ def errorFunction(etapa):
     firstDate += jumpDay
     navigator.closeNav("")
     logs.salvar_dados_excel('Error')
-    if etapa != "videoPosted" and userSelect == "fabio":
+    if etapa == "videoPosted 305" and userSelect == "fabio":
+        print("")
+    else:
         errorList.append((videoType, videoNumber, dateSelect))
     timeCalc()
     ntfy(f"❌❌❌❌❌\nPrevisão de termino: {horario_estimado}\nNumero do Video: {videoNumber}/{end}\nCategoria: {videoType}\nEtapa do Erro: {etapa}\nVersão:{version}\nOpenConsole: {VopenConsole}")
@@ -439,17 +446,15 @@ def dadosIniciais():
     global start, end, jumpDay, errorList, postar, foundSelectorVideo, foundSelectorThumb, userSelect, attemptsWhile, contentLanguague, ytStudioLink, goalDate
     foundSelectorVideo = f"{base_path / 'videos'}"
     foundSelectorThumb = f"{base_path / 'thumbs'}"
-    start = 12
-    end = 23
+    start = 20
+    end = 20
     jumpDay = 10
-    goalDate = "10/09/2025"
+    goalDate = "01/12/2025"
     contentLanguague = "NULL" # pt-br / en-us / es-es # Usar para escolher qual tipo de conteudo vai ser postado e em qual linguagem vai ser postado
     attemptsWhile = 0
     users.userSelectF()
     calculateDates.goalDateF(goalDate, fullStartDate)
  
-
-
    #""" TODO criar verificacao para quando atingir o limite de envio diario
     #js path do erro do yt de maximo de envios : document.querySelector("#dialog > div > ytcp-animatable.button-area.metadata-fade-in-section.style-scope.ytcp-uploads-dialog > div > div.left-button-area.style-scope.ytcp-uploads-dialog > ytcp-ve > div.error-short.style-scope.ytcp-uploads-dialog").textContent
     #retorna isso se tiver textContent no final: 'O limite diário de envios foi alcançado'
@@ -457,7 +462,7 @@ def dadosIniciais():
     #o ultimo codigo do gemini funciona se colar e logo em seguida dar ctrl shift i, a pagina precisa estar clicada para copiar o texto"""
     
 errorList = []
-postar = ["rr3", "fcmob", "eab", "csr2", "dsse", "geomatry", "moon"]
+postar = ["sharkev"]
 
 for videoType in postar:
     dadosIniciais()
@@ -465,18 +470,22 @@ for videoType in postar:
     titlePath = info["titulo_arquivo"]
     descPath = f"users/{userSelect}/{info['desc_arquivo']}"
     hour = info["horario"]
-    
+
     actualDate = (date.today()).day 
     if actualDate > startDate:
         firstDate -= 1
+    
+    if videoType == "avw":
+        start = 21
+        calculateDates.goalDateF("11/12/2025", fullStartDate)
 
-    if videoType == "teste":
-        print("teste")
+    if videoType == "TEMPLATE":
+        print("")
     else:
-        print("teste")
+        print("TEMPLATE")
         #calculateDates.goalDateF("17/08/2025", fullStartDate)
         
-    ntfy(f"INICIANDO ENVIO DE {videoType} {int(postar.index(videoType))+1}/{len(postar)}\nVersão:{version}")
+    ntfy(f"INICIANDO ENVIO DE {videoType} {int(postar.index(videoType))+1}/{len(postar)}\nVersão: {version}\nUser: {userSelect}")
 
     for videoNumber in range(start, end+1):
         time_start = time.time()
@@ -499,7 +508,7 @@ for videoType in postar:
         navigator.closeNav("")
         firstDate += jumpDay
         timeCalc()
-        ntfy(f"✅✅✅✅✅\nPrevisão de termino: {horario_estimado}\nVideos: {videoNumber}/{end}\nCategoria: {videoType}\nVersão:{version}\nOpenConsole: {VopenConsole}")
+        ntfy(f"✅✅✅✅✅\nPrevisão de termino: {horario_estimado}\nVideos: {videoNumber}/{end}\nCategoria: {videoType}\nVersão:{version}\nOpenConsole: {VopenConsole}\nUser: {userSelect}")
 
 while len(errorList) > 0 or attemptsWhile < 5:
     attemptsWhile += 1
@@ -512,7 +521,7 @@ while len(errorList) > 0 or attemptsWhile < 5:
         dateSelect = dateSelect
 
         time_start = time.time()
-        ntfy(f"INICIANDO SESSAO DE ERROS\nCategoria: {videoType}\nNumero do Video: {videoNumber}\nData da Postagem: {dateSelect}\nVersão:{version}\nOpenConsole: {VopenConsole}")
+        ntfy(f"INICIANDO SESSAO DE ERROS\nCategoria: {videoType}\nNumero do Video: {videoNumber}\nData da Postagem: {dateSelect}\nVersão: {version}\nOpenConsole: {VopenConsole}\nUser: {userSelect}")
         aboutVideoInfos()
         navigator.openNav(ytStudioLink)
         time.sleep(5)
@@ -526,7 +535,7 @@ while len(errorList) > 0 or attemptsWhile < 5:
         navigator.closeNav("")
         errorList.remove((videoType, videoNumber, dateSelect))
         timeCalc()
-        ntfy(f"✅✅✅✅✅\nPrevisão de termino: {horario_estimado}\nNumero do Video: {videoNumber}/{end}\nCategoria: {videoType}\nVersão:{version}\nOpenConsole: {VopenConsole}")
+        ntfy(f"✅✅✅✅✅\nPrevisão de termino: {horario_estimado}\nNumero do Video: {videoNumber}/{end}\nCategoria: {videoType}\nVersão: {version}\nOpenConsole: {VopenConsole}\nUser: {userSelect}")
 
 navigator.closeNav("Final")
 ntfy("TODOS OS ENVIOS FORAM FINALIZADOS")
