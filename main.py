@@ -446,10 +446,10 @@ def dadosIniciais():
     global start, end, jumpDay, errorList, postar, foundSelectorVideo, foundSelectorThumb, userSelect, attemptsWhile, contentLanguague, ytStudioLink, goalDate
     foundSelectorVideo = f"{base_path / 'videos'}"
     foundSelectorThumb = f"{base_path / 'thumbs'}"
-    start = 20
-    end = 20
+    start = 11
+    end = 11
     jumpDay = 10
-    goalDate = "01/12/2025"
+    goalDate = "01/08/2026"
     contentLanguague = "NULL" # pt-br / en-us / es-es # Usar para escolher qual tipo de conteudo vai ser postado e em qual linguagem vai ser postado
     attemptsWhile = 0
     users.userSelectF()
@@ -461,8 +461,8 @@ def dadosIniciais():
     #colocar time sleep para enviar isso dps que der o next     
     #o ultimo codigo do gemini funciona se colar e logo em seguida dar ctrl shift i, a pagina precisa estar clicada para copiar o texto"""
     
-errorList = []
-postar = ["sharkev"]
+errorList = [] #("sf2", "11", "01/08/2026") item para teste
+postar = ["sf2"]
 
 for videoType in postar:
     dadosIniciais()
@@ -475,9 +475,9 @@ for videoType in postar:
     if actualDate > startDate:
         firstDate -= 1
     
-    if videoType == "avw":
-        start = 21
-        calculateDates.goalDateF("11/12/2025", fullStartDate)
+    if videoType == "nfs":
+        start = 11
+        calculateDates.goalDateF("30/08/2025", fullStartDate)
 
     if videoType == "TEMPLATE":
         print("")
@@ -512,7 +512,8 @@ for videoType in postar:
 
 while len(errorList) > 0 or attemptsWhile < 5:
     attemptsWhile += 1
-    for videoType, videoNumber, dateSelect in errorList:
+    for (videoType, videoNumber, dateSelect) in errorList:
+        errorList.remove((videoType, videoNumber, dateSelect))
         errorInfo = False
         info = conteudos[videoType]
         titlePath = info["titulo_arquivo"]
@@ -533,9 +534,8 @@ while len(errorList) > 0 or attemptsWhile < 5:
         if errorInfo == True:
             continue
         navigator.closeNav("")
-        errorList.remove((videoType, videoNumber, dateSelect))
         timeCalc()
-        ntfy(f"✅✅✅✅✅\nPrevisão de termino: {horario_estimado}\nNumero do Video: {videoNumber}/{end}\nCategoria: {videoType}\nVersão: {version}\nOpenConsole: {VopenConsole}\nUser: {userSelect}")
+        ntfy(f"✅✅✅✅✅Error Function\nPrevisão de termino: {horario_estimado}\nNumero do Video: {videoNumber}/{end}\nCategoria: {videoType}\nVersão: {version}\nOpenConsole: {VopenConsole}\nUser: {userSelect}")
 
 navigator.closeNav("Final")
 ntfy("TODOS OS ENVIOS FORAM FINALIZADOS")
