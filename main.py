@@ -71,7 +71,7 @@ class navigator:
 
     def openConsole():
         global consoleCounter, VopenConsole
-        VopenConsole = "v25"
+        VopenConsole = "v26"
         pg.hotkey("ctrl", "shift", "i")
         for i in range(0,100):
             inspecActivity = pg.locateCenterOnScreen(f"users/{userSelect}/images/console/inspecActivity.png", confidence=0.95)
@@ -92,9 +92,13 @@ class navigator:
             pg.hotkey('ctrl', 'v')
             time.sleep(0.35)
             pg.press('enter')
+            pg.press("enter")
+            pg.press("enter")
             time.sleep(0.2)
             pg.write("allow pasting")
             time.sleep(0.25)
+            pg.press("enter")
+            pg.press("enter")
             pg.press("enter")
             time.sleep(0.75)
         else:
@@ -446,10 +450,11 @@ def dadosIniciais():
     global start, end, jumpDay, errorList, postar, foundSelectorVideo, foundSelectorThumb, userSelect, attemptsWhile, contentLanguague, ytStudioLink, goalDate
     foundSelectorVideo = f"{base_path / 'videos'}"
     foundSelectorThumb = f"{base_path / 'thumbs'}"
-    start = 11
-    end = 11
+    start = 14
+    end = 22
     jumpDay = 10
-    goalDate = "01/08/2026"
+    goalDate = "03/10/2025"
+    userLanguague = "NULL" # disponibilizar linguagens para a preferencia do usuario
     contentLanguague = "NULL" # pt-br / en-us / es-es # Usar para escolher qual tipo de conteudo vai ser postado e em qual linguagem vai ser postado
     attemptsWhile = 0
     users.userSelectF()
@@ -462,7 +467,7 @@ def dadosIniciais():
     #o ultimo codigo do gemini funciona se colar e logo em seguida dar ctrl shift i, a pagina precisa estar clicada para copiar o texto"""
     
 errorList = [] #("sf2", "11", "01/08/2026") item para teste
-postar = ["sf2"]
+postar = ["journeys", "bit", "motor", "fury", "bomba", "rebel", "house"]
 
 for videoType in postar:
     dadosIniciais()
@@ -474,10 +479,6 @@ for videoType in postar:
     actualDate = (date.today()).day 
     if actualDate > startDate:
         firstDate -= 1
-    
-    if videoType == "nfs":
-        start = 11
-        calculateDates.goalDateF("30/08/2025", fullStartDate)
 
     if videoType == "TEMPLATE":
         print("")
