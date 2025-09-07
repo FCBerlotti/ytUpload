@@ -3,6 +3,7 @@ from PIL import Image, ImageDraw # Adicionado ImageDraw
 import tkinter
 import ctypes
 from pathlib import Path
+import subprocess
 
 base_path = Path(__file__).parent
 version = "v0.1"
@@ -24,6 +25,14 @@ def arredondar_cantos_imagem(caminho_imagem, raio):
     except FileNotFoundError:
         return None
     
+def salvar_configuracao(username):
+    """Salva o nome de usuário em um arquivo de configuração."""
+    # Define o caminho para o arquivo config.txt, na raiz do projeto
+    config_path = base_path.parent.parent / "config.txt"
+    with open(config_path, "w") as f:
+        f.write(f"username={username}\n")
+    print(f"Configurações salvas em {config_path}")
+
 class App(ctk.CTk):
     def __init__(self):
         super().__init__()
@@ -148,6 +157,8 @@ class App(ctk.CTk):
         )
         login_button.place(x=184, y=614)
     
+        self.bind("<Return>", lambda event: self.login_event())
+    
     # --- FUNÇÃO DO BOTÃO ---
     def login_event(self):
         username = self.user_entry.get()
@@ -159,12 +170,16 @@ class App(ctk.CTk):
         # TODO CRIAR ARQUIVO DE VALIDACAO DE USUARIOS 
 
         # Aqui você pode adicionar sua lógica de autenticação
-        if username == "admin" and password == "1234":
+        if (username == "berlotti" and password == "") or (username == "fabio" and password == "123"):
             print("Login bem-sucedido!")
+            salvar_configuracao(username)
+            main_dir = base_path.parent.parent
+            subprocess.Popen(["python", (main_dir / "main.py")], cwd=main_dir)
+            app.destroy()
         else:
             print("Usuário ou senha inválidos.")
 
-        # TODO CASO O USUARIO SEJA VALIDADO, FECHAR O login.py E ABRIR O programSelect.py
+        # TODO CASO O USUARIO SEJA VALIDADO, FECHAR O login.py E ABRIR O programSelect.py na proxima versao
 
 if __name__ == "__main__":
     app = App()

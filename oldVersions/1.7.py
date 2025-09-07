@@ -22,10 +22,10 @@ videoUploaded = False
 errorInfo = False
 startDate = (date.today()).day
 fullStartDate = date.today()
-version = "2.0"
+version = "1.7"
 
-"Funcionalidades adicionadas na versão 2.0"
-# Pagina de login com interface
+"Funcionalidades adicionadas na versão 1.7"
+# Nova classe para selecao de usuario e funcoes criadas, agora o código consegue identificar quem é o usuario e não dar erro de imagens --adicionar
 
 "Funcionalidades para adicionar"
 # Correção na função do excel --escrever nome da funcao aqui-- ela anotava apenas o numero do video e se deu erro ou nao, agora ela anota a categoria e quais videos foram enviados ou não -- adicionar
@@ -429,42 +429,18 @@ class users:
         elif userSelect == "fabio":
             ytStudioLink = "https://studio.youtube.com/channel/UC3DZUNHs1SsdA8YE2PbcSZg"
 
-    def ler_configuracao():
-        """
-        Lê o arquivo de configuração e retorna as configurações como um dicionário.
-        """
-        
-        # Constrói o caminho para o arquivo config.txt, que está no mesmo diretório
-        config_path = base_path / "config.txt"
-        
-        configuracoes = {}
-        try:
-            with open(config_path, "r") as f:
-                for linha in f:
-                    # Remove espaços em branco e quebras de linha
-                    linha = linha.strip()
-                    # Ignora linhas vazias
-                    if not linha:
-                        continue
-                    
-                    # Divide a linha no primeiro '=' para separar a chave e o valor
-                    chave, valor = linha.split("=", 1)
-                    
-                    # Salva no dicionário de configurações
-                    configuracoes[chave] = valor
-            
-            print(f"Configurações lidas com sucesso do arquivo: {config_path}")
-            return configuracoes
-            
-        except FileNotFoundError:
-            print(f"Erro: O arquivo de configuração {config_path} não foi encontrado.")
-            return None
-        except Exception as e:
-            print(f"Ocorreu um erro ao ler o arquivo de configuração: {e}")
-            return None
+    def userCollect():
+        janela = tk.Tk()
+        janela.withdraw()
+        username = simpledialog.askstring("ytUpload", "Por favor, insira seu nome de login:")
+        if username:
+            print(f"Nome de login inserido: {username}")
+            return username
+        else:
+            print("Nenhum nome de login inserido.")
+            exit()
 
-config = users.ler_configuracao()
-userSelect = config.get("username")
+userSelect = users.userCollect() # berlotti / fabio
 
 def dadosIniciais():
     global start, end, jumpDay, errorList, postar, foundSelectorVideo, foundSelectorThumb, userSelect, attemptsWhile, contentLanguague, ytStudioLink, goalDate
@@ -473,7 +449,7 @@ def dadosIniciais():
     start = 21
     end = 22
     jumpDay = 10
-    goalDate = "12/06/2025"
+    goalDate = "12/12/2025"
     userLanguague = "NULL" # disponibilizar linguagens para a preferencia do usuario
     contentLanguague = "NULL" # pt-br / en-us / es-es # Usar para escolher qual tipo de conteudo vai ser postado e em qual linguagem vai ser postado
     attemptsWhile = 0

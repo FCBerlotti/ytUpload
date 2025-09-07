@@ -1,1 +1,3 @@
-py main.py
+cd dashboard
+cd login
+py login.py
