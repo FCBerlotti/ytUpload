@@ -430,11 +430,6 @@ class users:
             ytStudioLink = "https://studio.youtube.com/channel/UC3DZUNHs1SsdA8YE2PbcSZg"
 
     def ler_configuracao():
-        """
-        Lê o arquivo de configuração e retorna as configurações como um dicionário.
-        """
-        
-        # Constrói o caminho para o arquivo config.txt, que está no mesmo diretório
         config_path = base_path / "config.txt"
         
         configuracoes = {}
@@ -470,10 +465,10 @@ def dadosIniciais():
     global start, end, jumpDay, errorList, postar, foundSelectorVideo, foundSelectorThumb, userSelect, attemptsWhile, contentLanguague, ytStudioLink, goalDate
     foundSelectorVideo = f"{base_path / 'videos'}"
     foundSelectorThumb = f"{base_path / 'thumbs'}"
-    start = 21
+    start = 14
     end = 22
     jumpDay = 10
-    goalDate = "12/06/2025"
+    goalDate = "03/10/2025"
     userLanguague = "NULL" # disponibilizar linguagens para a preferencia do usuario
     contentLanguague = "NULL" # pt-br / en-us / es-es # Usar para escolher qual tipo de conteudo vai ser postado e em qual linguagem vai ser postado
     attemptsWhile = 0

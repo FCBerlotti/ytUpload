@@ -141,7 +141,7 @@ JOGOS PC (111-120)
 116 - btd6pc = BLOONS TOWER DEFENSE 6 (PC)
 117 - simspc = THE SIMS (PC)
 118 - worldbox = WORLD BOX
-119 - [VAZIO]
+119 - bs = BLOOD STRIKE https://www.youtube.com/watch?v=HfcjGoXS75w&pp=ygUXd2Fyem9uZSBtb2JpbGUgbW9kIG1lbnXSBwkJsgkBhyohjO8%3D
 120 - [VAZIO]
 
 JOVENS (16+ ANOS) (121-130)
@@ -207,7 +207,7 @@ SÉRIE DE JOGOS (POPPY) (161-170)
 CATEGORIA VAZIA (171-180)
 171 - buss = BUS SIMULATOR ULTIMATE // https://www.youtube.com/watch?v=f_3EqSSa6gk
 172 - tsbg = TRUCK SIMULATOR BIG RIGS // https://www.youtube.com/watch?v=jUGTNRvT5lo
-173 - offroad = OFF THE ROAD // https://www.youtube.com/watch?v=M0k_oz3J4eU&pp=0gcJCa0JAYcqIYzv
+173 - offtroad = OFF THE ROAD // https://www.youtube.com/watch?v=M0k_oz3J4eU&pp=0gcJCa0JAYcqIYzv
 174 - drts = DRIVE REAL TRUCK SIMULATOR // https://www.youtube.com/watch?v=SXYMYRfSTbI
 176 - [VAZIO]
 177 - [VAZIO]
