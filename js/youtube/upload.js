@@ -1,7 +1,6 @@
 (() => {
     setTimeout(() => {
-        var createButton = document.querySelector("#create-icon > ytcp-button-shape > button > yt-touch-feedback-shape > div > div.yt-spec-touch-feedback-shape__fill")
-
+        var createButton = document.querySelector("#create-icon > ytcp-button-shape > button > yt-touch-feedback-shape > div.yt-spec-touch-feedback-shape__fill")
         if (createButton) {
             createButton.click(); // Clica no botão se o elemento for encontrado
         } else {
@@ -18,3 +17,4 @@
         }
     }, 2000);
 })();
+

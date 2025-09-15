@@ -13,6 +13,7 @@ import json
 from pathlib import Path
 import tkinter as tk
 from tkinter import simpledialog
+import inspect
 
 base_path = Path(__file__).parent
 consoleCounter = 0
@@ -26,6 +27,8 @@ version = "2.0"
 
 "Funcionalidades adicionadas na versão 2.0"
 # Pagina de login com interface
+# Corrigido bug de duplicação no erro "videoPosted 305"
+# Agora a identificação da linha de erro é inteligente, capaz de identificar a exata linha em que o código está escrito
 
 "Funcionalidades para adicionar"
 # Correção na função do excel --escrever nome da funcao aqui-- ela anotava apenas o numero do video e se deu erro ou nao, agora ela anota a categoria e quais videos foram enviados ou não -- adicionar
@@ -36,8 +39,10 @@ version = "2.0"
 # Criar funcao para chamar o ntfy no codigo, com todas as notificacoes possiveis -- adicionar
 # Padronizar com o RDP, só rodar naquela resolucao -- adicionar
 # Montar passo a passo para configurar um novo pc, com o RDP e sem o RDP -- adicionar
-# Adicionar verificação para quando iniciar o bot, ele verificar todos os nomes dos antes de comecar a rodar --adicionar 
+# Adicionar verificação para quando iniciar o bot, ele verificar todos os nomes dos conteudos antes de comecar a rodar --adicionar 
 # Adicionar um campo de contagem de 24h no dashboard --adicionar
+# Na dashboard, adicionar uma funcao para clicar e reenviar os videos com erros -- adicionar
+# Padronizar a descricao, para cada tipo de linguagem, sendo possivel o usuario colocar apenas as tags e o link de download para cada conteudo na dashboard -- adicionar
 
 def ntfy(message):
     try:
@@ -172,11 +177,7 @@ def errorFunction(etapa):
     errorInfo = True
     firstDate += jumpDay
     navigator.closeNav("")
-    logs.salvar_dados_excel('Error')
-    if etapa == "videoPosted 305" and userSelect == "fabio":
-        print("")
-    else:
-        errorList.append((videoType, videoNumber, dateSelect))
+    logs.salvar_dados_excel(f'Error {etapa}')
     timeCalc()
     ntfy(f"❌❌❌❌❌\nPrevisão de termino: {horario_estimado}\nNumero do Video: {videoNumber}/{end}\nCategoria: {videoType}\nEtapa do Erro: {etapa}\nVersão:{version}\nOpenConsole: {VopenConsole}")
 
@@ -230,7 +231,7 @@ class steps:
         def foundSelectorF():
             uploadClick = clickImage(True, f'users/{userSelect}/images/youtube/upload.png', 0.9, 50)
             if uploadClick is False:
-                errorFunction("uploadClick 193")
+                errorFunction(f"uploadClick {inspect.currentframe().f_lineno}")
                 return
             time.sleep(1)
             linkFolderClick = clickImage(True, f'users/{userSelect}/images/windows/linkFolder.png', 0.9, 20)
@@ -254,7 +255,7 @@ class steps:
                     time.sleep(0.5)
                     print("video selecionado e enviado")
             else:
-                errorFunction("linkFolderClick 217")
+                errorFunction(f"linkFolderClick {inspect.currentframe().f_lineno}")
                 return
         foundSelectorF()
     
@@ -282,7 +283,7 @@ class steps:
                     pg.press('enter')
                     time.sleep(0.5)
         else:
-            errorFunction("LinkFolderClick 246")
+            errorFunction(f"LinkFolderClick {inspect.currentframe().f_lineno}")
             return
         
         time.sleep(5)
@@ -331,19 +332,21 @@ class steps:
                         pg.press('enter')
                         time.sleep(1)
                     else:
-                        errorFunction("hourSelect 296")
+                        errorFunction(f"hourSelect {inspect.currentframe().f_lineno}")
                         return
-                    clickImage(True, f'users/{userSelect}/images/youtube/programar.png', 0.9, 40)
+                    programar = clickImage(True, f'users/{userSelect}/images/youtube/programar.png', 0.9, 40)
+                    if programar is False:
+                        errorFunction(f"programar {inspect.currentframe().f_lineno}")
                     time.sleep(1)
             videoPosted = clickImage(False, f'users/{userSelect}/images/youtube/videoPosted.png', 0.88, 150) #TODO ALTERRAR REPETICOES DE TENTATIVAS DE ACORDO COM O USUARIO FABIO = 250
-            if videoPosted is True:
+            if videoPosted is True or programar is True:
                 videoUploaded = True
             else:
                 videoUploaded = False
-                errorFunction("videoPosted 305")
+                errorFunction(f"videoPosted {inspect.currentframe().f_lineno}")
                 return
         else:
-            errorFunction("copyright 308")
+            errorFunction(f"copyright {inspect.currentframe().f_lineno}")
             return
         
 class logs:
@@ -465,10 +468,10 @@ def dadosIniciais():
     global start, end, jumpDay, errorList, postar, foundSelectorVideo, foundSelectorThumb, userSelect, attemptsWhile, contentLanguague, ytStudioLink, goalDate
     foundSelectorVideo = f"{base_path / 'videos'}"
     foundSelectorThumb = f"{base_path / 'thumbs'}"
-    start = 14
-    end = 22
+    start = 13
+    end = 23
     jumpDay = 10
-    goalDate = "03/10/2025"
+    goalDate = "21/09/2025"
     userLanguague = "NULL" # disponibilizar linguagens para a preferencia do usuario
     contentLanguague = "NULL" # pt-br / en-us / es-es # Usar para escolher qual tipo de conteudo vai ser postado e em qual linguagem vai ser postado
     attemptsWhile = 0
@@ -482,7 +485,7 @@ def dadosIniciais():
     #o ultimo codigo do gemini funciona se colar e logo em seguida dar ctrl shift i, a pagina precisa estar clicada para copiar o texto"""
     
 errorList = [] #("sf2", "11", "01/08/2026") item para teste
-postar = ["journeys", "bit", "motor", "fury", "bomba", "rebel", "house"]
+postar = ["poppy3", "marks", "poppy4", "sod", "rfs"]
 
 for videoType in postar:
     dadosIniciais()
@@ -490,10 +493,15 @@ for videoType in postar:
     titlePath = info["titulo_arquivo"]
     descPath = f"users/{userSelect}/{info['desc_arquivo']}"
     hour = info["horario"]
-
+    
     actualDate = (date.today()).day 
     if actualDate > startDate:
         firstDate -= 1
+    if videoType == "marks" or videoType == "poppy4":
+        calculateDates.goalDateF("22/09/2025", fullStartDate)
+    elif videoType == "sod" or videoType == "rfs":
+        calculateDates.goalDateF("23/09/2025", fullStartDate)
+        end = 22
 
     if videoType == "TEMPLATE":
         print("")
@@ -519,13 +527,13 @@ for videoType in postar:
         steps.step2Edit()
         if errorInfo == True:
             continue
-        
         logs.salvar_dados_excel('Posted')
         navigator.closeNav("")
         firstDate += jumpDay
         timeCalc()
         ntfy(f"✅✅✅✅✅\nPrevisão de termino: {horario_estimado}\nVideos: {videoNumber}/{end}\nCategoria: {videoType}\nVersão:{version}\nOpenConsole: {VopenConsole}\nUser: {userSelect}")
 
+ntfy(f"INICIANDO SESSAO DE ERROS\nCategoria: {videoType}\nNumero do Video: {videoNumber}\nData da Postagem: {dateSelect}\nVersão: {version}\nOpenConsole: {VopenConsole}\nUser: {userSelect}")
 while len(errorList) > 0 or attemptsWhile < 5:
     attemptsWhile += 1
     for (videoType, videoNumber, dateSelect) in errorList:
@@ -538,7 +546,6 @@ while len(errorList) > 0 or attemptsWhile < 5:
         dateSelect = dateSelect
 
         time_start = time.time()
-        ntfy(f"INICIANDO SESSAO DE ERROS\nCategoria: {videoType}\nNumero do Video: {videoNumber}\nData da Postagem: {dateSelect}\nVersão: {version}\nOpenConsole: {VopenConsole}\nUser: {userSelect}")
         aboutVideoInfos()
         navigator.openNav(ytStudioLink)
         time.sleep(5)
