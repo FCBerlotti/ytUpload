@@ -178,6 +178,7 @@ def errorFunction(etapa):
     firstDate += jumpDay
     navigator.closeNav("")
     logs.salvar_dados_excel(f'Error {etapa}')
+    errorList.append((videoType, videoNumber, dateSelect))
     timeCalc()
     ntfy(f"❌❌❌❌❌\nPrevisão de termino: {horario_estimado}\nNumero do Video: {videoNumber}/{end}\nCategoria: {videoType}\nEtapa do Erro: {etapa}\nVersão:{version}\nOpenConsole: {VopenConsole}")
 
@@ -297,7 +298,7 @@ class steps:
         copyright = clickImage(False, f'users/{userSelect}/images/youtube/copyright.png', 0.85, 1)
         copyright2 = clickImage(False, f'users/{userSelect}/images/youtube/copyright2.png', 0.85, 1)
 
-        for i in range(0, 300):
+        for ecodeverify in range(0, 200):
             if copyright is False and copyright2 is False:
                 copyright = clickImage(False, f'users/{userSelect}/images/youtube/copyright.png', 0.85, 1)
                 copyright2 = clickImage(False, f'users/{userSelect}/images/youtube/copyright2.png', 0.85, 1)
@@ -461,6 +462,7 @@ class users:
             print(f"Ocorreu um erro ao ler o arquivo de configuração: {e}")
             return None
 
+pg.hotkey("win", "m")
 config = users.ler_configuracao()
 userSelect = config.get("username")
 
@@ -468,10 +470,10 @@ def dadosIniciais():
     global start, end, jumpDay, errorList, postar, foundSelectorVideo, foundSelectorThumb, userSelect, attemptsWhile, contentLanguague, ytStudioLink, goalDate
     foundSelectorVideo = f"{base_path / 'videos'}"
     foundSelectorThumb = f"{base_path / 'thumbs'}"
-    start = 13
-    end = 23
+    start = 15
+    end = 22
     jumpDay = 10
-    goalDate = "21/09/2025"
+    goalDate = "15/10/2025"
     userLanguague = "NULL" # disponibilizar linguagens para a preferencia do usuario
     contentLanguague = "NULL" # pt-br / en-us / es-es # Usar para escolher qual tipo de conteudo vai ser postado e em qual linguagem vai ser postado
     attemptsWhile = 0
@@ -485,7 +487,7 @@ def dadosIniciais():
     #o ultimo codigo do gemini funciona se colar e logo em seguida dar ctrl shift i, a pagina precisa estar clicada para copiar o texto"""
     
 errorList = [] #("sf2", "11", "01/08/2026") item para teste
-postar = ["poppy3", "marks", "poppy4", "sod", "rfs"]
+postar = ["footl", "hungry", "boxmob"]
 
 for videoType in postar:
     dadosIniciais()
@@ -497,10 +499,9 @@ for videoType in postar:
     actualDate = (date.today()).day 
     if actualDate > startDate:
         firstDate -= 1
-    if videoType == "marks" or videoType == "poppy4":
-        calculateDates.goalDateF("22/09/2025", fullStartDate)
-    elif videoType == "sod" or videoType == "rfs":
-        calculateDates.goalDateF("23/09/2025", fullStartDate)
+    if videoType == "hungry" or videoType == "boxmob":
+        calculateDates.goalDateF("25/09/2025", fullStartDate)
+        start = 13
         end = 22
 
     if videoType == "TEMPLATE":
