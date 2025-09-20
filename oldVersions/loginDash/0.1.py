@@ -1,12 +1,12 @@
 import customtkinter as ctk
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw # Adicionado ImageDraw
 import tkinter
 import ctypes
 from pathlib import Path
 import subprocess
 
 base_path = Path(__file__).parent
-version = "v0.2"
+version = "v0.1"
 versionStatus = "pre_alpha"
 myappid = f'quantuminfinity.login.ytupload.{version}.{versionStatus}' 
 ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
@@ -28,7 +28,7 @@ def arredondar_cantos_imagem(caminho_imagem, raio):
 def salvar_configuracao(username):
     """Salva o nome de usuário em um arquivo de configuração."""
     # Define o caminho para o arquivo config.txt, na raiz do projeto
-    config_path = base_path.parent.parent / "configs/loginConfig.txt"
+    config_path = base_path.parent.parent / "config.txt"
     with open(config_path, "w") as f:
         f.write(f"username={username}\n")
     print(f"Configurações salvas em {config_path}")
@@ -173,11 +173,13 @@ class App(ctk.CTk):
         if (username == "berlotti" and password == "") or (username == "fabio" and password == "123"):
             print("Login bem-sucedido!")
             salvar_configuracao(username)
-            programSelect_dir = base_path.parent.parent
-            subprocess.Popen(["python", (programSelect_dir / "dashboard/programSelect/programSelect.py")], cwd=programSelect_dir)
+            main_dir = base_path.parent.parent
+            subprocess.Popen(["python", (main_dir / "main.py")], cwd=main_dir)
             app.destroy()
         else:
             print("Usuário ou senha inválidos.")
+
+        # TODO CASO O USUARIO SEJA VALIDADO, FECHAR O login.py E ABRIR O programSelect.py na proxima versao
 
 if __name__ == "__main__":
     app = App()

@@ -23,7 +23,7 @@ videoUploaded = False
 errorInfo = False
 startDate = (date.today()).day
 fullStartDate = date.today()
-version = "2.0"
+version = "2.1"
 
 "Funcionalidades adicionadas na versão 2.0"
 # Pagina de login com interface
@@ -434,7 +434,7 @@ class users:
             ytStudioLink = "https://studio.youtube.com/channel/UC3DZUNHs1SsdA8YE2PbcSZg"
 
     def ler_configuracao():
-        config_path = base_path / "config.txt"
+        config_path = base_path / "configs/loginConfig.txt"
         
         configuracoes = {}
         try:

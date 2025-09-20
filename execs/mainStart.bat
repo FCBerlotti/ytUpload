@@ -1,0 +1,2 @@
+cd ..
+py main.py
