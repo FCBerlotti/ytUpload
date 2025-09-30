@@ -455,8 +455,8 @@ configuracoes = users.ler_configuracoes()
 userSelect = configuracoes.get('username', 'N/A')
 conteudosConfig = configuracoes.get('conteudos', '')
 jumpDay = configuracoes.get('dias', '10') # Padrão de 10 dias se não for encontrado
-primeiro_video = configuracoes.get('primeiro_video', '')
-ultimo_video = configuracoes.get('ultimo_video', '')
+primeiro_video = int(configuracoes.get('primeiro_video', ''))
+ultimo_video = int(configuracoes.get('ultimo_video', ''))
 data_inicio = configuracoes.get('data_inicio', '')
 
 def dadosIniciais():
