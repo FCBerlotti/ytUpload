@@ -14,9 +14,6 @@ myappid = f'quantuminfinity.programSelect.ytupload.{version}.{versionStatus}'
 ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
 
 def arredondar_cantos_imagem(caminho_imagem, raio):
-    """
-    Abre uma imagem, arredonda seus cantos e a retorna como um objeto PIL.
-    """
     try:
         imagem_original = Image.open(caminho_imagem).convert("RGBA")
         mascara = Image.new('L', imagem_original.size, 0)
@@ -52,7 +49,7 @@ class App(ctk.CTk):
         self.software_data = [
             {
                 "caminho_imagem": base_path / 'images/ytUploadSelect.png',
-                "caminho_executavel": f'python "{base_path.parent.parent / "main.py"}"',
+                "caminho_executavel": f'python "{base_path.parent / "ytUpload/ytUpload.py"}"',
                 "pos_x": 60, "pos_y": 200,
                 "size": (180, 220) 
             },
@@ -139,6 +136,7 @@ class App(ctk.CTk):
             # Usar shlex.split é mais seguro para caminhos com espaços
             import shlex
             subprocess.Popen(shlex.split(path))
+            app.destroy()
         except FileNotFoundError:
             print(f"Erro: Arquivo não encontrado em '{path}'. Verifique o caminho.")
         except Exception as e:

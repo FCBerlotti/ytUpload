@@ -23,7 +23,7 @@ videoUploaded = False
 errorInfo = False
 startDate = (date.today()).day
 fullStartDate = date.today()
-version = "2.1"
+version = "2.2"
 
 "Funcionalidades adicionadas na versão 2.0"
 # Pagina de login com interface
@@ -433,47 +433,40 @@ class users:
         elif userSelect == "fabio":
             ytStudioLink = "https://studio.youtube.com/channel/UC3DZUNHs1SsdA8YE2PbcSZg"
 
-    def ler_configuracao():
-        config_path = base_path / "configs/loginConfig.txt"
-        
-        configuracoes = {}
+    def ler_configuracoes():
+        """Lê o arquivo de configuração e retorna um dicionário."""
+        # O caminho para o arquivo de configuração, relativo ao main.py
+        config_path = base_path / "configs" / "configs.txt"
+        config_data = {}
         try:
-            with open(config_path, "r") as f:
-                for linha in f:
-                    # Remove espaços em branco e quebras de linha
-                    linha = linha.strip()
-                    # Ignora linhas vazias
-                    if not linha:
-                        continue
-                    
-                    # Divide a linha no primeiro '=' para separar a chave e o valor
-                    chave, valor = linha.split("=", 1)
-                    
-                    # Salva no dicionário de configurações
-                    configuracoes[chave] = valor
-            
-            print(f"Configurações lidas com sucesso do arquivo: {config_path}")
-            return configuracoes
-            
+            with open(config_path, "r", encoding='utf-8') as f:
+                for line in f:
+                    # Garante que a linha não está em branco e contém '='
+                    if "=" in line.strip():
+                        key, value = line.strip().split("=", 1)
+                        config_data[key] = value
         except FileNotFoundError:
-            print(f"Erro: O arquivo de configuração {config_path} não foi encontrado.")
-            return None
-        except Exception as e:
-            print(f"Ocorreu um erro ao ler o arquivo de configuração: {e}")
-            return None
+            print(f"AVISO: Arquivo de configuração não encontrado em {config_path}")
+            # Retorna um dicionário vazio se o arquivo não existir
+        return config_data
 
 pg.hotkey("win", "m")
-config = users.ler_configuracao()
-userSelect = config.get("username")
+configuracoes = users.ler_configuracoes()
+userSelect = configuracoes.get('username', 'N/A')
+conteudosConfig = configuracoes.get('conteudos', '')
+jumpDay = configuracoes.get('dias', '10') # Padrão de 10 dias se não for encontrado
+primeiro_video = configuracoes.get('primeiro_video', '')
+ultimo_video = configuracoes.get('ultimo_video', '')
+data_inicio = configuracoes.get('data_inicio', '')
 
 def dadosIniciais():
     global start, end, jumpDay, errorList, postar, foundSelectorVideo, foundSelectorThumb, userSelect, attemptsWhile, contentLanguague, ytStudioLink, goalDate
     foundSelectorVideo = f"{base_path / 'videos'}"
     foundSelectorThumb = f"{base_path / 'thumbs'}"
-    start = 15
-    end = 22
-    jumpDay = 10
-    goalDate = "15/10/2025"
+    start = primeiro_video
+    end = ultimo_video
+    jumpDay = jumpDay
+    goalDate = data_inicio
     userLanguague = "NULL" # disponibilizar linguagens para a preferencia do usuario
     contentLanguague = "NULL" # pt-br / en-us / es-es # Usar para escolher qual tipo de conteudo vai ser postado e em qual linguagem vai ser postado
     attemptsWhile = 0
@@ -487,7 +480,9 @@ def dadosIniciais():
     #o ultimo codigo do gemini funciona se colar e logo em seguida dar ctrl shift i, a pagina precisa estar clicada para copiar o texto"""
     
 errorList = [] #("sf2", "11", "01/08/2026") item para teste
-postar = ["footl", "hungry", "boxmob"]
+postar = [item.strip() for item in conteudosConfig.split(',') if item.strip()]
+
+# TODO CRIAR VERIFICACAO PARA VER SE OS CONTEUDOS EXISTEM OU NAO, FAZER ISSO NO YTUPLOAD.PY
 
 for videoType in postar:
     dadosIniciais()
@@ -499,10 +494,6 @@ for videoType in postar:
     actualDate = (date.today()).day 
     if actualDate > startDate:
         firstDate -= 1
-    if videoType == "hungry" or videoType == "boxmob":
-        calculateDates.goalDateF("25/09/2025", fullStartDate)
-        start = 13
-        end = 22
 
     if videoType == "TEMPLATE":
         print("")

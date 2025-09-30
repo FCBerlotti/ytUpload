@@ -28,7 +28,7 @@ def arredondar_cantos_imagem(caminho_imagem, raio):
 def salvar_configuracao(username):
     """Salva o nome de usuário em um arquivo de configuração."""
     # Define o caminho para o arquivo config.txt, na raiz do projeto
-    config_path = base_path.parent.parent / "configs/loginConfig.txt"
+    config_path = base_path.parent.parent / "configs/configs.txt"
     with open(config_path, "w") as f:
         f.write(f"username={username}\n")
     print(f"Configurações salvas em {config_path}")
